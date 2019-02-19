@@ -1,20 +1,34 @@
-package com.example.spacetrader;
+package com.example.spacetrader.entity;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Player {
     private String name;
     private String difficulty;
+    private String ship;
     private int pilotPoints;
     private int fighterPoints;
     private int traderPoints;
     private int engineerPoints;
+    private int credits;
 
-    public Player(String nam, String diff, int pPoints, int fPoints, int tPoints, int ePoints) {
+    public static List<String> LegalDifficulties = Arrays.asList("Easy", "Normal", "Difficult", "Insane", "Impossible");
+
+    public Player(){
+        this("","","", 0,0,0,0,0);
+    }
+
+    public Player(String nam, String diff, String ship, int pPoints, int fPoints, int tPoints, int ePoints, int credits) {
         name = nam;
         difficulty = diff;
+        this.ship = ship;
         pilotPoints = pPoints;
         fighterPoints = fPoints;
         traderPoints = tPoints;
         engineerPoints = ePoints;
+        this.credits = credits;
+
     }
 
     public void setName(String nam) {
@@ -63,6 +77,19 @@ public class Player {
 
     public int getEngineerPoints() {
         return engineerPoints;
+    }
+
+    public void setCredits(int credits){this.credits = credits;}
+
+    public int getCredits(){return credits;}
+
+    public String getShip(){return ship;}
+
+    public void setShip(String ship){this.ship =ship;}
+
+    public String toString(){
+        return name + " " + difficulty +  " " + ship +  " " + pilotPoints +  " " + fighterPoints
+                +  " " + traderPoints +  " " + engineerPoints +  " " + credits;
     }
 
 }

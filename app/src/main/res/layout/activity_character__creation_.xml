@@ -18,7 +18,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/engineerSkill"
-        app:layout_constraintTop_toBottomOf="@+id/engineerLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/engineerLabel"
+        android:onClick="onEPlus"/>
 
     <Button
         android:id="@+id/engineer-"
@@ -34,7 +35,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/engineerSkill"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/engineerLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/engineerLabel"
+        android:onClick="onEMinus"/>
 
     <Button
         android:id="@+id/traderPlus"
@@ -50,7 +52,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/traderSkill"
-        app:layout_constraintTop_toBottomOf="@+id/traderLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/traderLabel"
+        android:onClick="onTPlus"/>
 
     <Button
         android:id="@+id/trader-"
@@ -66,7 +69,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/traderSkill"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/traderLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/traderLabel"
+        android:onClick="onTMinus"/>
 
     <Button
         android:id="@+id/fighterPlus"
@@ -81,9 +85,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toEndOf="@+id/fighterSkill"
-        app:layout_constraintTop_toBottomOf="@+id/fighterLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/fighterLabel"
+        app:layout_constraintVertical_bias="0.666"
+        android:onClick="onFPlus"/>
 
     <Button
         android:id="@+id/fighter-"
@@ -99,7 +105,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fighterSkill"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fighterLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/fighterLabel"
+        android:onClick="onFMinus"/>
 
     <TextView
         android:id="@+id/engineerSkill"
@@ -240,6 +247,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="number"
+        android:text="16"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -336,7 +344,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultySpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/difficultySpinner"
+        android:onClick="onCharacterCreate"/>
 
     <Button
         android:id="@+id/pilotPlus"
@@ -352,7 +361,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pilotSkill"
-        app:layout_constraintTop_toBottomOf="@+id/pilotLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/pilotLabel"
+        android:onClick="onPPlus"/>
 
     <Button
         android:id="@+id/pilot-"
@@ -368,6 +378,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pilotSkill"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pilotLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/pilotLabel"
+        android:onClick="onPMinus"/>
 
 </android.support.constraint.ConstraintLayout>

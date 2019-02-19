@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.Character_Creation_Activity"
                   android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"></activity>
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.MainActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

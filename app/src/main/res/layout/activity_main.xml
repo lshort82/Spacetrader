@@ -33,4 +33,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         android:onClick="onStartNewGame"/>
 
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="264dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="8dp"
+        android:text="Exit Application"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:onClick="onExitApp"/>
+
 </android.support.constraint.ConstraintLayout>

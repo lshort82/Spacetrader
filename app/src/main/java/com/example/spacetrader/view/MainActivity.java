@@ -22,4 +22,11 @@ public class MainActivity extends AppCompatActivity {
     public void onStartNewGame(View view){
         startActivity(new Intent(this,Character_Creation_Activity.class));
     }
+
+    public void onExitApp (View view){
+        finish();
+        System.exit(0);
+    }
+
+
 }

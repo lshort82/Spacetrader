@@ -7,6 +7,8 @@ public class PlayerBuilder {
     private int fighterPoints = 0;
     private int traderPoints = 0;
     private int engineerPoints = 0;
+    private int credits = 1000;
+    private String spaceship = "Gnat";
 
     public PlayerBuilder(String nam) {
         this.name = nam;
@@ -38,6 +40,18 @@ public class PlayerBuilder {
 
     public PlayerBuilder engineerPoints(int ePoints) {
         this.engineerPoints = ePoints;
+
+        return this;
+    }
+
+    public PlayerBuilder credits(int cred) {
+        this.credits = cred;
+
+        return this;
+    }
+
+    public PlayerBuilder spaceship(String ship) {
+        this.spaceship = ship;
 
         return this;
     }

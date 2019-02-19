@@ -1,5 +1,6 @@
 package com.example.spacetrader.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.view.WindowManager;
 
 import com.example.spacetrader.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +24,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,Character_Creation_Activity.class));
     }
 
-    public void onExitApp (View view){
-        finish();
-        System.exit(0);
+    public void onExit(View view){
+        this.finishAffinity();
     }
-
-
 }

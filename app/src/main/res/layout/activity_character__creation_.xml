@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Character_Creation_Activity">
+
+    <Button
+        android:id="@+id/engineerPlus"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/engineerSkill"
+        app:layout_constraintTop_toBottomOf="@+id/engineerLabel" />
+
+    <Button
+        android:id="@+id/engineer-"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="196dp"
+        android:gravity="center"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/engineerSkill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/engineerLabel" />
+
+    <Button
+        android:id="@+id/traderPlus"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="280dp"
+        android:gravity="center"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/traderSkill"
+        app:layout_constraintTop_toBottomOf="@+id/traderLabel" />
+
+    <Button
+        android:id="@+id/trader-"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="281dp"
+        android:gravity="center"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/traderSkill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traderLabel" />
+
+    <Button
+        android:id="@+id/fighterPlus"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="361dp"
+        android:gravity="center"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toEndOf="@+id/fighterSkill"
+        app:layout_constraintTop_toBottomOf="@+id/fighterLabel" />
+
+    <Button
+        android:id="@+id/fighter-"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="361dp"
+        android:gravity="center"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fighterSkill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fighterLabel" />
+
+    <TextView
+        android:id="@+id/engineerSkill"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="195dp"
+        android:gravity="center"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/engineerLabel" />
+
+    <TextView
+        android:id="@+id/engineerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="191dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="240dp"
+        android:gravity="center"
+        android:text="engineer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traderSkill" />
+
+    <TextView
+        android:id="@+id/traderSkill"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="279dp"
+        android:gravity="center"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traderLabel" />
+
+    <TextView
+        android:id="@+id/traderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="191dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="324dp"
+        android:gravity="center"
+        android:text="trader"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fighterSkill" />
+
+    <TextView
+        android:id="@+id/fighterSkill"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="359dp"
+        android:gravity="center"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fighterLabel" />
+
+    <TextView
+        android:id="@+id/fighterLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="191dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="408dp"
+        android:gravity="center"
+        android:text="fighter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilotSkill" />
+
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="299dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="626dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pointsLeftLabel"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginBottom="554dp"
+        android:gravity="center"
+        android:text="Skill Points left:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <TextView
+        android:id="@+id/pointsLeftText"
+        android:layout_width="176dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="186dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="554dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toEndOf="@+id/pointsLeftLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <TextView
+        android:id="@+id/pilotLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="191dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="492dp"
+        android:gravity="center"
+        android:text="Pilot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skillSelectionLabel" />
+
+    <TextView
+        android:id="@+id/skillSelectionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="524dp"
+        android:gravity="center"
+        android:text="Skill Selection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsLeftLabel" />
+
+    <TextView
+        android:id="@+id/pilotSkill"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="444dp"
+        android:gravity="center"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilotLabel" />
+
+    <Spinner
+        android:id="@+id/difficultySpinner"
+        android:layout_width="383dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficultyLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/difficultyLabel"
+        android:layout_width="166dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="64dp"
+        android:gravity="center"
+        android:text="Game Difficutly"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/engineerSkill" />
+
+    <Button
+        android:id="@+id/createButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="125dp"
+        android:text="Create Character"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficultySpinner" />
+
+    <Button
+        android:id="@+id/pilotPlus"
+        android:layout_width="62dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="446dp"
+        android:gravity="center"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pilotSkill"
+        app:layout_constraintTop_toBottomOf="@+id/pilotLabel" />
+
+    <Button
+        android:id="@+id/pilot-"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="441dp"
+        android:gravity="center"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pilotSkill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilotLabel" />
+
+</android.support.constraint.ConstraintLayout>

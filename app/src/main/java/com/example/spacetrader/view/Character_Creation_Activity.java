@@ -153,9 +153,9 @@ public class Character_Creation_Activity extends Activity {
                 new AlertDialog.Builder(this)
                         .setTitle("Points Unallocated")
                         .setMessage("Do you want to continue without using all the skill points? "
-                                + "You will receive 100 credits per point unused."
-                                + "Press yes and Create Character to confirm, "
-                                + "or press no and make changes first")
+                                + "You will receive 100 credits per point unused. "
+                                + "Press OK and Create Character to confirm, "
+                                + "or press Cancel and make changes first")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 

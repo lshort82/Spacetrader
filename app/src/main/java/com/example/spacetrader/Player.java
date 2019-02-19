@@ -7,14 +7,18 @@ public class Player {
     private int fighterPoints;
     private int traderPoints;
     private int engineerPoints;
+    private int credits;
+    private String spaceship;
 
-    public Player(String nam, String diff, int pPoints, int fPoints, int tPoints, int ePoints) {
+    public Player(String nam, String diff, int pPoints, int fPoints, int tPoints, int ePoints, int cred, String ship) {
         name = nam;
         difficulty = diff;
         pilotPoints = pPoints;
         fighterPoints = fPoints;
         traderPoints = tPoints;
         engineerPoints = ePoints;
+        credits = cred;
+        spaceship = ship;
     }
 
     public void setName(String nam) {
@@ -63,6 +67,22 @@ public class Player {
 
     public int getEngineerPoints() {
         return engineerPoints;
+    }
+
+    public void setCredits(int cred) {
+        credits = cred;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setSpaceship(String ship) {
+        spaceship = ship;
+    }
+
+    public String getSpaceship() {
+        return spaceship;
     }
 
 }

@@ -88,8 +88,8 @@ public class Player {
     public void setShip(String ship){this.ship =ship;}
 
     public String toString(){
-        return name + " " + difficulty +  " " + ship +  " " + pilotPoints +  " " + fighterPoints
-                +  " " + traderPoints +  " " + engineerPoints +  " " + credits;
+        return "name: " + name + " difficulty: " + difficulty +  " ship: " + ship +  " pilot Skill: " + pilotPoints +  " fighter Skill: " + fighterPoints
+                +  " trader Skill: " + traderPoints +  " engineer Skill: " + engineerPoints +  " credits: " + credits;
     }
 
 }

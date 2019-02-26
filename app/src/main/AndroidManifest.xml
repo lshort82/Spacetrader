@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.Character_Creation_Activity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"></activity>
-        <activity android:name=".view.MainActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <activity android:name=".view.UniverseCreation"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".view.Character_Creation_Activity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".view.MainActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -175,10 +175,10 @@ public class Character_Creation_Activity extends Activity {
                 viewModel.newPlayer(player);
 
                 // for grading and dev use only
-                Toast.makeText(this, player.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, player.toString(), Toast.LENGTH_LONG).show();
                 Log.i("Player details",player.toString());
-
-                this.finish();
+                startActivity(new Intent(this,UniverseCreation.class)); // for M6 demo
+                //this.finish();
             }
         } else {
             Toast.makeText(this,"Your name is invalid!",Toast.LENGTH_LONG).show();

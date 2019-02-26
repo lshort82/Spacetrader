@@ -304,18 +304,15 @@
 
     <Spinner
         android:id="@+id/difficultySpinner"
-        android:layout_width="383dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="276dp"
+        android:layout_height="42dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="68dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/difficultyLabel"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.255" />
 
     <TextView
         android:id="@+id/difficultyLabel"

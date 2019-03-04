@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.Universe;
 import com.example.spacetrader.viewmodel.PlayerBuilder;
 
 public class Character_Creation_Activity extends Activity {
@@ -31,7 +32,6 @@ public class Character_Creation_Activity extends Activity {
     private TextView trader;
     private TextView engineer;
     private Spinner diff;
-
     private Player player;
     private int points;
 
@@ -49,7 +49,7 @@ public class Character_Creation_Activity extends Activity {
         diff = findViewById(R.id.difficultySpinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, Player.LegalDifficulties);
+                android.R.layout.simple_spinner_item, Universe.legalDifficulties);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         diff.setAdapter(adapter);
 
@@ -171,13 +171,16 @@ public class Character_Creation_Activity extends Activity {
                 player.setCredits(player.getCredits() + 1000);
                 player.setName(name.getText().toString());
                 player.setShip("Gnat Spaceship");
-                player.setDifficulty(diff.getSelectedItem().toString());
                 viewModel.newPlayer(player);
 
                 // for grading and dev use only
                 //Toast.makeText(this, player.toString(), Toast.LENGTH_LONG).show();
                 Log.i("Player details",player.toString());
-                startActivity(new Intent(this,UniverseCreation.class)); // for M6 demo
+                Intent uniIntent = new Intent(this,UniverseCreation.class);
+                Bundle uniBundle = new Bundle();
+                uniBundle.putString("diff", diff.getSelectedItem().toString());
+                uniIntent.putExtras(uniBundle);
+                startActivity(uniIntent); // for M6 demo
                 //this.finish();
             }
         } else {

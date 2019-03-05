@@ -13,7 +13,7 @@ public class Player {
     private int engineerPoints;
     private int credits;
 
-    public static List<String> LegalDifficulties = Arrays.asList("Easy", "Normal", "Difficult", "Insane", "Impossible");
+    public static List<String> legalDifficulties = Arrays.asList("Easy", "Normal", "Difficult", "Insane", "Impossible");
 
     public Player(){
         this("","","", 0,0,0,0,0);
@@ -85,7 +85,7 @@ public class Player {
 
     public String getShip(){return ship;}
 
-    public void setShip(String ship){this.ship =ship;}
+    public void setShip(String ship){this.ship = ship;}
 
     public String toString(){
         return "name: " + name + " difficulty: " + difficulty +  " ship: " + ship +  " pilot Skill: " + pilotPoints +  " fighter Skill: " + fighterPoints

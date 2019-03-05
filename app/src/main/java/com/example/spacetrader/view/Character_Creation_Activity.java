@@ -49,7 +49,7 @@ public class Character_Creation_Activity extends Activity {
         diff = findViewById(R.id.difficultySpinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, Universe.legalDifficulties);
+                android.R.layout.simple_spinner_item, Player.legalDifficulties);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         diff.setAdapter(adapter);
 

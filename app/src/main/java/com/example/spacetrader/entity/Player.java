@@ -7,6 +7,9 @@ public class Player {
     private String name;
     private String difficulty;
     private String ship;
+    private List<Item> inventory;
+    private List<Integer> quantity;
+    private int spaceLeft;
     private int pilotPoints;
     private int fighterPoints;
     private int traderPoints;
@@ -28,7 +31,7 @@ public class Player {
         traderPoints = tPoints;
         engineerPoints = ePoints;
         this.credits = credits;
-
+        spaceLeft= 10;
     }
 
     public void setName(String nam) {
@@ -85,6 +88,32 @@ public class Player {
 
     public String getShip(){return ship;}
 
+    public int spaceLeft(){
+        return spaceLeft;
+    }
+
+    public void addItem(Item item, int quantity) {
+        if(inventory.contains(item)) {
+            this.quantity.set(inventory.indexOf(item),this.quantity.get(inventory.indexOf(item)) + quantity);
+        }
+        else{
+            inventory.add(item);
+            this.quantity.add(quantity);
+        }
+    }
+
+    public void removeItem(Item item, int quantity){
+        if(inventory.contains(item)) {
+            this.quantity.set(inventory.indexOf(item), this.quantity.get(inventory.indexOf(item)) - quantity);
+        }
+    }
+
+    public int getItemQuantity(Item item){
+        if(inventory.contains(item)){
+            return quantity.get(inventory.indexOf(item));
+        }
+        return  0;
+    }
     public void setShip(String ship){this.ship = ship;}
 
     public String toString(){

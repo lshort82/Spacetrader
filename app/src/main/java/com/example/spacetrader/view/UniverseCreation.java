@@ -1,13 +1,18 @@
 package com.example.spacetrader.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Item;
+import com.example.spacetrader.entity.Market;
 import com.example.spacetrader.entity.Universe;
+
+import java.util.ArrayList;
 
 public class UniverseCreation extends Activity {
 
@@ -20,6 +25,21 @@ public class UniverseCreation extends Activity {
         Universe universe = new Universe();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,universe.toStringList());
         universeView.setAdapter(adapter);
+
+        //FOR M7 DEMO ONLY
+        Intent intent = new Intent(this,MarketActivity.class);
+        ArrayList<Item> e = new ArrayList<Item>();
+        e.add(Item.WATER);
+        e.add(Item.ORE);
+        e.add(Item.FURS);
+        ArrayList<Integer> e2 = new ArrayList<Integer>();
+        e2.add(4);
+        e2.add(5);
+        e2.add(2);
+        intent.putExtra("inventory",e);
+        intent.putExtra("quantity",e2);
+        startActivity(intent);
+        //end demo only
     }
 
 

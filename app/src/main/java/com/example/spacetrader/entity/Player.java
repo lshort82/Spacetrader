@@ -1,5 +1,6 @@
 package com.example.spacetrader.entity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class Player {
         engineerPoints = ePoints;
         this.credits = credits;
         spaceLeft= 10;
+        inventory = new ArrayList<Item>();
+        quantity = new ArrayList<Integer>();
     }
 
     public void setName(String nam) {
@@ -114,6 +117,15 @@ public class Player {
         }
         return  0;
     }
+
+    public List<Item> getInventory(){
+        return  inventory;
+    }
+
+    public List<Integer> getQuantity() {
+        return quantity;
+    }
+
     public void setShip(String ship){this.ship = ship;}
 
     public String toString(){

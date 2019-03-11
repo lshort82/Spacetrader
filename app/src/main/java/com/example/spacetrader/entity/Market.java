@@ -2,26 +2,26 @@ package com.example.spacetrader.entity;
 
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Market {
     List<Item> inventory;
     List<Integer> quantity;
     List<Integer> price;
-    int TechLevelofLocation;
+    int techLevelofLocation;
     public Market(Planet planet){
         //to be implemented
     }
 
     public Market(List<Item> inventory, List<Integer> quantity){
-        while(inventory.size() > quantity.size()){
-            quantity.add(0);
-        }
         this.inventory=inventory;
         this.quantity = quantity;
+        price = new ArrayList<Integer>();
         for(int i =0; i< inventory.size(); i++){
             price.add(getPrice(i));
         }
+        techLevelofLocation = 0;
     }
     public void resetPrices(){
         for(int i =0; i< inventory.size(); i++){
@@ -33,9 +33,12 @@ public class Market {
             return 99999;
         }
         int base = inventory.get(index).getPrice();
-        int var = Math.random() >.5 ? 1 : -1;
+        int var = -1;
+        if(Math.random() >.5) {
+            var = 1;
+        }
         var = (int)(Math.random()*inventory.get(index).getVariance() + 1) * var;
-        var += inventory.get(index).getIncPerTech() * (TechLevelofLocation);
+        var += inventory.get(index).getIncPerTech() * (techLevelofLocation);
         return base + var;
     }
 
@@ -43,8 +46,20 @@ public class Market {
         int base = item.getPrice();
         int var = Math.random() >.5 ? 1 : -1;
         var = (int)(Math.random()*item.getVariance() + 1) * var;
-        var += item.getIncPerTech() * (TechLevelofLocation);
+        var += item.getIncPerTech() * (techLevelofLocation);
         return base + var;
+    }
+
+    public List<Integer> getQuantity() {
+        return quantity;
+    }
+
+    public List<Integer> getPrice() {
+        return price;
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
     }
 
     public String makePurchase(Player player, int index, int quantity){

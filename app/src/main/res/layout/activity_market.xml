@@ -6,10 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".view.MarketActivity">
 
+    <TextView
+        android:id="@+id/SpaceLeftLabel"
+        android:layout_width="103dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Space Left:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+
+    <TextView
+        android:id="@+id/spaceLeft"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintEnd_toStartOf="@+id/creditsLabel"
+        app:layout_constraintStart_toEndOf="@+id/SpaceLeftLabel"
+        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+
     <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/item_list"
+        android:layout_width="match_parent"
+        android:layout_height="497dp"
+        android:layout_marginTop="126dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item" />
 
 
@@ -21,6 +50,7 @@
         android:layout_marginTop="643dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="11dp"
+        android:onClick="onTogglePerspective"
         android:text="Switch perspective"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,4 +58,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/invLabel"
+        android:layout_width="267dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="660dp"
+        android:gravity="center"
+        android:text="Store Inventory"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/creditsLabel"
+        android:layout_width="66dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Credits:"
+        app:layout_constraintEnd_toStartOf="@+id/Credits"
+        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+
+    <TextView
+        android:id="@+id/Credits"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+
 </android.support.constraint.ConstraintLayout>

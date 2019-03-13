@@ -13,7 +13,15 @@ public class Market {
     public Market(Planet planet){
         //to be implemented
     }
-
+    public Market(List<Item> inventory, List<Integer> quantity, List<Integer> price){
+        this.inventory =inventory;
+        this.quantity = quantity;
+        this.price=price;
+        for(int i =price.size(); i< inventory.size(); i++){
+            price.add(getPrice(i));
+        }
+        techLevelofLocation = 0;
+    }
     public Market(List<Item> inventory, List<Integer> quantity){
         this.inventory=inventory;
         this.quantity = quantity;
@@ -62,7 +70,11 @@ public class Market {
         return inventory;
     }
 
-    public String makePurchase(Player player, int index, int quantity){
+    public String makePurchase(Player player, Item item, int quantity){
+        int index = inventory.indexOf(item);
+        if(index == -1) {
+            return "item not available";
+        }
         if(player.spaceLeft() < quantity) {
             return "Not enough space in inventory";
         }
@@ -84,5 +96,12 @@ public class Market {
             player.setCredits(price*quantity + player.getCredits());
             return "Sale made!";
         }
+    }
+
+    public int getPrice(Item item) {
+        if(inventory.indexOf(item) < 0) {
+            return 99999;
+        }
+        return price.get(inventory.indexOf(item));
     }
 }

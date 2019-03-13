@@ -40,8 +40,8 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
 
             //bind the student data for one student
             holder.name.setText(inventory.get(position).getName());
-            holder.quant.setText(quantity.get(position).toString());
-            holder.price.setText(price.get(position).toString());
+            holder.quant.setText("Quantity:" + quantity.get(position).toString());
+            holder.price.setText("Price:" + price.get(position).toString());
 
         }
 
@@ -81,7 +81,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
                         int position = getAdapterPosition();
 
                         if (listener != null && position != RecyclerView.NO_POSITION) {
-                            listener.onItemClicked(inventory.get(position));
+                            listener.onItemClicked(inventory.get(position),quantity.get(position));
                         }
                     }
                 });
@@ -90,7 +90,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
         }
 
         public interface OnItemClickListener {
-            void onItemClicked(Item item);
+            void onItemClicked(Item item,int quant);
         }
 
         public void setOnItemClickListener(OnItemClickListener listener) {

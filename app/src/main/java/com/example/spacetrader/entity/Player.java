@@ -103,11 +103,18 @@ public class Player {
             inventory.add(item);
             this.quantity.add(quantity);
         }
+        spaceLeft -= quantity;
     }
 
     public void removeItem(Item item, int quantity){
         if(inventory.contains(item)) {
             this.quantity.set(inventory.indexOf(item), this.quantity.get(inventory.indexOf(item)) - quantity);
+            if(this.quantity.get(inventory.indexOf(item))==0){
+                int i = inventory.indexOf(item);
+                inventory.remove(item);
+                this.quantity.remove(i);
+            }
+            spaceLeft += quantity;
         }
     }
 

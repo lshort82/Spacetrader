@@ -137,7 +137,7 @@ public class MarketActivity extends Activity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Log.d("NumPicker", "onClick: " + numberPicker.getValue());
                             Log.d("NumPicker", "onClick: " + numberPicker.getValue());
-                            String x = market.makeSale(player,item2,numberPicker.getValue(),playerMarket.getPrice(item2));
+                            String x = playerMarket.makeSale(player,item2,numberPicker.getValue(),playerMarket.getPrice(item2));
                             Log.d("NumPicker",x);
                             showToast(x);
                             onResume();

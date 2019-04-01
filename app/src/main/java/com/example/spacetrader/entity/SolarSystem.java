@@ -2,6 +2,8 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import com.example.spacetrader.model.PlayerInteractor;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NavigableMap;
@@ -23,6 +25,13 @@ public class SolarSystem implements Visitable {
         randomGen(new Random().nextInt(6) + 1);
     }
 
+    public SolarSystem(int x, int y, String name){
+        this.name = name;
+        this.xCoord = x;
+        this.yCoord = y;
+        cosmicBodies = new ArrayList<>();
+        cosmicBodies.add(new Planet("Earth", generateResources(), 7, 0));
+    }
     public SolarSystem(int x, int y, String name,  List<Visitable> cosmicBodies) {
         this.name = name;
         this.xCoord = x;
@@ -31,7 +40,12 @@ public class SolarSystem implements Visitable {
     }
 
     public void onVisit(){
-        Log.i("Visit","Vitisting " + this.toString());
+        Player player = PlayerInteractor.getPlayer();
+        int distance = Math.abs(player.getX() - xCoord) < Math.abs(player.getY() - yCoord) ? Math.abs(player.getX() - xCoord) : Math.abs(player.getY() - yCoord);
+        player.useFuel(distance);
+        player.setX(xCoord);
+        player.setY(yCoord);
+        PlayerInteractor.setPlayer(player);
     }
 
     private void randomGen(int numBodies) {
@@ -121,6 +135,19 @@ public class SolarSystem implements Visitable {
             double value = random.nextDouble() * total;
             return map.higherEntry(value).getValue();
         }
+    }
+
+    public boolean hasinterior() {
+        return true;
+    }
+    public List<Visitable> getInterior() {
+        return cosmicBodies;
+    }
+    public boolean hasMarket() {
+        return false;
+    }
+    public Market getMarket(){
+        return null;
     }
 }
 

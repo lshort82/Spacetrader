@@ -2,17 +2,14 @@ package com.example.spacetrader.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +18,10 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Item;
 import com.example.spacetrader.entity.Market;
 import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.model.MarketInteractor;
+import com.example.spacetrader.model.PlayerInteractor;
+import com.example.spacetrader.model.UniverseInteractor;
+import com.example.spacetrader.model.VisitableInteractor;
 
 import java.util.ArrayList;
 
@@ -48,27 +49,30 @@ public class MarketActivity extends Activity {
         adapter = new MarketAdapter();
         recyclerView.setAdapter(adapter);
 
-        //FOR M7DEMO ONLY!
-        e = new ArrayList<Item>();
-        e.add(Item.WATER);
-        e.add(Item.ORE);
-        e.add(Item.FURS);
-        e2 = new ArrayList<Integer>();
-        e2.add(4);
-        e2.add(5);
-        e2.add(2);
-        market = new Market(e, e2);
-        player = new Player();
-        player.setCredits(1000);
+//        //FOR M7DEMO ONLY!
+//        e = new ArrayList<Item>();
+//        e.add(Item.WATER);
+//        e.add(Item.ORE);
+//        e.add(Item.FURS);
+//        e2 = new ArrayList<Integer>();
+//        e2.add(4);
+//        e2.add(5);
+//        e2.add(2);
+//        market = new Market(e, e2);
+//        player = new Player();
+//        player.setCredits(1000);
+//        playerMarket = new Market(player.getInventory(),player.getQuantity());
+//        //END DEMO ONLY (KINDA)
+        player = PlayerInteractor.getPlayer();
+        market = MarketInteractor.getMarket();
         playerMarket = new Market(player.getInventory(),player.getQuantity());
-        //END DEMO ONLY (KINDA)
     }
 
 
     public void onResume() {
         super.onResume();
         playerMarket = new Market(player.getInventory(),player.getQuantity(), playerMarket.getPrice());
-        TextView creds = findViewById(R.id.Credits);
+        TextView creds = findViewById(R.id.credits);
         creds.setText(player.getCredits()+ "");
         TextView spaceLeft = findViewById(R.id.spaceLeft);
         spaceLeft.setText(player.spaceLeft()+ "");
@@ -154,9 +158,14 @@ public class MarketActivity extends Activity {
             }
         });
     }
+    public void onTravel(View view) {
+        PlayerInteractor.setPlayer(player);
+        VisitableInteractor.setVisitables(UniverseInteractor.getUniverse().inRange(player.getX(),player.getY(),player.getFuel()));
+        startActivity(new Intent(this, navigationActivity.class));
+    }
     public void onTogglePerspective(View view){
         isBuying = !isBuying;
-        TextView header = findViewById(R.id.invLabel);
+        TextView header = findViewById(R.id.locationLabel);
         if(isBuying) {
             header.setText("Store Inventory");
         } else {

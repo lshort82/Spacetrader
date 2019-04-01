@@ -8,9 +8,16 @@ import java.util.List;
 
 public class PlayerInteractor {
 
-    private Player player;
+    private static Player player;
 
-    public PlayerInteractor(Player player) {
-        this.player = player;
+    public static Player getPlayer() {
+        if(player == null) {
+            return new Player();
+        }
+        return player;
+    }
+
+    public static void setPlayer(Player newplayer) {
+        player = newplayer;
     }
 }

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.entity.Universe;
+import com.example.spacetrader.model.PlayerInteractor;
 import com.example.spacetrader.viewmodel.PlayerBuilder;
 
 public class Character_Creation_Activity extends Activity {
@@ -175,6 +176,7 @@ public class Character_Creation_Activity extends Activity {
 
                 // for grading and dev use only
                 //Toast.makeText(this, player.toString(), Toast.LENGTH_LONG).show();
+                PlayerInteractor.setPlayer(player);
                 Log.i("Player details",player.toString());
                 Intent uniIntent = new Intent(this,UniverseCreation.class);
                 Bundle uniBundle = new Bundle();

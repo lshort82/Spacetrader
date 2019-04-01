@@ -16,6 +16,9 @@ public class Player {
     private int traderPoints;
     private int engineerPoints;
     private int credits;
+    private int x;
+    private int y;
+    private int fuel;
 
     public static List<String> legalDifficulties = Arrays.asList("Easy", "Normal", "Difficult", "Insane", "Impossible");
 
@@ -35,6 +38,9 @@ public class Player {
         spaceLeft= 10;
         inventory = new ArrayList<Item>();
         quantity = new ArrayList<Integer>();
+        x = 15;
+        y = 15;
+        fuel = 30;
     }
 
     public void setName(String nam) {
@@ -106,8 +112,10 @@ public class Player {
         spaceLeft -= quantity;
     }
 
-    public void removeItem(Item item, int quantity){
+    public int removeItem(Item item, int quantity){
+        int ret = -1;
         if(inventory.contains(item)) {
+            ret = inventory.indexOf(item);
             this.quantity.set(inventory.indexOf(item), this.quantity.get(inventory.indexOf(item)) - quantity);
             if(this.quantity.get(inventory.indexOf(item))==0){
                 int i = inventory.indexOf(item);
@@ -116,6 +124,7 @@ public class Player {
             }
             spaceLeft += quantity;
         }
+        return ret;
     }
 
     public int getItemQuantity(Item item){
@@ -140,4 +149,39 @@ public class Player {
                 +  " trader Skill: " + traderPoints +  " engineer Skill: " + engineerPoints +  " credits: " + credits;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
+
+    public void useFuel(int x) {
+        fuel -= x;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setQuantity(List<Integer> quantity) {
+        this.quantity = quantity;
+    }
 }

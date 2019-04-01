@@ -10,8 +10,20 @@ public class Market {
     List<Integer> quantity;
     List<Integer> price;
     int techLevelofLocation;
-    public Market(Planet planet){
-        //to be implemented
+    public Market(Planet planet){ // planet will be used for further implementation eventually
+        this.inventory = new ArrayList<>();
+        this.quantity = new ArrayList<>();
+        this.price = new ArrayList<>();
+        this.techLevelofLocation = planet.getTechnologyLevel();
+        for (Item e : Item.values()){
+            if(e.getMinTechProd() < this.techLevelofLocation) {
+                this.inventory.add(e);
+                this.quantity.add((int)(Math.random() * 10) + 1);
+            }
+        }
+        for(int i =price.size(); i< inventory.size(); i++){
+            price.add(getPrice(i));
+        }
     }
     public Market(List<Item> inventory, List<Integer> quantity, List<Integer> price){
         this.inventory =inventory;
@@ -92,7 +104,11 @@ public class Market {
             return "Not enough of " + item.getName()+ " to sell!";
         }
         else {
-            player.removeItem(item,quantity);
+
+            int index = player.removeItem(item,quantity);
+            if(player.getItemQuantity(item)==0) {
+                this.price.remove(index);
+            }
             player.setCredits(price*quantity + player.getCredits());
             return "Sale made!";
         }

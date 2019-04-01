@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:text="Space Left:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
     <TextView
         android:id="@+id/spaceLeft"
@@ -25,9 +25,9 @@
         android:layout_marginEnd="8dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintEnd_toStartOf="@+id/creditsLabel"
+        app:layout_constraintEnd_toStartOf="@+id/fuellabel"
         app:layout_constraintStart_toEndOf="@+id/SpaceLeftLabel"
-        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/item_list"
@@ -60,7 +60,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/invLabel"
+        android:id="@+id/locationLabel"
         android:layout_width="267dp"
         android:layout_height="55dp"
         android:layout_marginStart="72dp"
@@ -76,17 +76,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/creditsLabel"
+        android:id="@+id/fuellabel"
         android:layout_width="66dp"
         android:layout_height="23dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Credits:"
-        app:layout_constraintEnd_toStartOf="@+id/Credits"
-        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+        app:layout_constraintEnd_toStartOf="@+id/credits"
+        app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
     <TextView
-        android:id="@+id/Credits"
+        android:id="@+id/credits"
         android:layout_width="85dp"
         android:layout_height="35dp"
         android:layout_marginStart="310dp"
@@ -94,6 +94,22 @@
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="onTravel"
+        android:text="Travel"
+        app:layout_constraintBottom_toTopOf="@+id/SpaceLeftLabel"
+        app:layout_constraintEnd_toStartOf="@+id/locationLabel"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

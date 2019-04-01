@@ -7,7 +7,8 @@ import java.util.Random;
 public class Universe {
     private Visitable[][] cosmicEntities;
     public Universe(){
-        cosmicEntities = new Visitable[150][150];
+        cosmicEntities = new Visitable[30][30];
+        cosmicEntities[15][15] = new SolarSystem(15,15,"Sol");
         populate(10);
     }
     public Universe(int xdim, int ydim, int numEntities) {
@@ -28,6 +29,21 @@ public class Universe {
                 numEntities--;
             }
         }
+    }
+
+    public Visitable getEntity(int x, int y){
+        return cosmicEntities[x][y];
+    }
+    public List<Visitable> inRange(int x, int y, int fuel) {
+        List<Visitable> ret = new ArrayList<>();
+        for(int i =0; i<cosmicEntities.length; i++) {
+            for(int j=0; j<cosmicEntities[0].length;j++) {
+                if(cosmicEntities[i][j] != null && (Math.abs(i - x) < fuel || Math.abs(j-y)< fuel)){
+                    ret.add(cosmicEntities[i][j]);
+                }
+            }
+        }
+        return ret;
     }
 
     public String toString() {

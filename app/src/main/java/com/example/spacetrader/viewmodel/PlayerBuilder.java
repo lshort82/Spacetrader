@@ -15,6 +15,6 @@ public class PlayerBuilder extends AndroidViewModel {
     }
 
     public void newPlayer(Player player) {
-        interactor = new PlayerInteractor(player);
+        //interactor = new PlayerInteractor(player);
     }
 }

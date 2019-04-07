@@ -1,13 +1,17 @@
 package com.example.spacetrader.view;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +62,38 @@ public class navigationActivity extends ListActivity {
     public void addItems(View v) {
         //listItems.add("Clicked : ");
         adapter.notifyDataSetChanged();
+    }
+
+    public void onSave(View view) {
+        LayoutInflater li = LayoutInflater.from(this);
+        View saveView = li.inflate(R.layout.activity_save_prompt, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(saveView);
+
+        final EditText userInput = saveView.findViewById(R.id.editText);
+        alertDialogBuilder.setCancelable(false).setPositiveButton("Save",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        SavedGames.addName(userInput.getText().toString());
+                        List<Visitable> places = new ArrayList<>();
+                        for (Visitable e : VisitableInteractor.getVisitables()) {
+                            places.add(e);
+                        }
+                        SavedGames.addPlaces(places);
+                        SavedGames.addX(PlayerInteractor.getPlayer().getX());
+                        SavedGames.addY(PlayerInteractor.getPlayer().getY());
+                        SavedGames.addFuelLevel(PlayerInteractor.getPlayer().getFuel());
+                        SavedGames.addUniverse(UniverseInteractor.getUniverse());
+                    }
+                })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
     @Override

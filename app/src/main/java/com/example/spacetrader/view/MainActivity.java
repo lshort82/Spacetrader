@@ -24,6 +24,10 @@ public class MainActivity extends Activity {
         startActivity(new Intent(this,Character_Creation_Activity.class));
     }
 
+    public void onResumeGame(View view) {
+        startActivity(new Intent(this, SavedGames.class));
+    }
+
     public void onExit(View view){
         this.finishAffinity();
     }

@@ -18,6 +18,9 @@
             android:name=".view.UniverseCreation"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
         <activity
+            android:name=".view.SavedGames"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
             android:name=".view.Character_Creation_Activity"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
         <activity

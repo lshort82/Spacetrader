@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.SimpleRandomEvent;
 import com.example.spacetrader.entity.Visitable;
 import com.example.spacetrader.model.MarketInteractor;
 import com.example.spacetrader.model.PlayerInteractor;
@@ -39,7 +40,7 @@ public class navigationActivity extends ListActivity {
     List<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapter;
     Player player;
-
+    final double RANDOMCHANCE = 1;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -117,6 +118,27 @@ public class navigationActivity extends ListActivity {
                 VisitableInteractor.setVisitables(places.get(position).getInterior());
                 TextView loc = findViewById(R.id.locationLabel);
                 loc.setText("Select Planet");
+                if (Math.random() < RANDOMCHANCE) {
+                    double threshold = 1 /(double) SimpleRandomEvent.values().length;
+                    final int index = (int) (Math.random()/threshold);
+                    new AlertDialog.Builder(this)
+                            .setTitle(SimpleRandomEvent.values()[index].getTitle())
+                            .setMessage(SimpleRandomEvent.values()[index].getDescription())
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton("give " +SimpleRandomEvent.values()[index].getAmtNeeded() + " "
+                                    + SimpleRandomEvent.values()[index].getGoodName(), new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    if (player.getItemQuantity(SimpleRandomEvent.values()[index].getGoodNeeded()) >= SimpleRandomEvent.values()[index].getAmtNeeded()) {
+                                        player.makeStatChange(SimpleRandomEvent.values()[index].getBenefit(),SimpleRandomEvent.values()[index].getBenefitAmt());
+                                        player.removeItem(SimpleRandomEvent.values()[index].getGoodNeeded(),SimpleRandomEvent.values()[index].getAmtNeeded());
+                                    } else {
+                                        Toast.makeText(navigationActivity.this,"not enough of good needed", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            })
+                            .setNegativeButton("Ignore them", null).show();
+                }
                 onResume();
             } else if (places.get(position).hasMarket()) {
                 Intent intent = new Intent(this, MarketActivity.class);

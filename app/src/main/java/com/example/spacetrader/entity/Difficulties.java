@@ -14,7 +14,7 @@ public enum Difficulties implements Serializable {
     Difficulties(String pcode) {
         code = pcode;
     }
-
+    
     public String getCode() { return code; }
 
 

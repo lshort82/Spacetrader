@@ -11,6 +11,9 @@
         <activity android:name=".view.navigationActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" ></activity>
         <activity
+            android:name=".view.SavedGames"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
             android:name=".view.MarketActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
         <activity

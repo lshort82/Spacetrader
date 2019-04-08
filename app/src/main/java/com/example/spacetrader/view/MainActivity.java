@@ -39,19 +39,20 @@ public class MainActivity extends Activity {
     }
 
     public void onResumeGame(View view) {
-        File file = new File(this.getFilesDir(), "text.bin");
-        try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
-            PlayerInteractor.setPlayer((Player) in.readObject());
-            UniverseInteractor.setUniverse((Universe) in.readObject());
-            VisitableInteractor.setVisitables((List<Visitable>) in.readObject());
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        startActivity(new Intent(this, navigationActivity.class));
+//        File file = new File(this.getFilesDir(), "text.bin");
+//        try {
+//            ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+//            PlayerInteractor.setPlayer((Player) in.readObject());
+//            UniverseInteractor.setUniverse((Universe) in.readObject());
+//            VisitableInteractor.setVisitables((List<Visitable>) in.readObject());
+//            in.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        startActivity(new Intent(this, navigationActivity.class));
+          startActivity(new Intent(this, SavedGames.class));
     }
 
     public void onExit(View view){

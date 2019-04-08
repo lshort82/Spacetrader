@@ -1,10 +1,11 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Player {
+public class Player implements Serializable {
     private String name;
     private String difficulty;
     private String ship;
@@ -22,7 +23,7 @@ public class Player {
 
     public static List<String> legalDifficulties = Arrays.asList("Easy", "Normal", "Difficult", "Insane", "Impossible");
 
-    public Player(){
+    public Player() {
         this("","","", 0,0,0,0,0);
     }
 

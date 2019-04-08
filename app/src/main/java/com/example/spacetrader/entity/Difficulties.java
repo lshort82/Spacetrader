@@ -1,6 +1,8 @@
 package com.example.spacetrader.entity;
 
-public enum Difficulties {
+import java.io.Serializable;
+
+public enum Difficulties implements Serializable {
     EASY ("Easy"),
     NORMAL ("Normal"),
     DIFFICULT ("Difficult"),
@@ -12,7 +14,7 @@ public enum Difficulties {
     Difficulties(String pcode) {
         code = pcode;
     }
-
+    
     public String getCode() { return code; }
 
 

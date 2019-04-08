@@ -1,8 +1,9 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class NameGenerator {
+public class NameGenerator implements Serializable {
 
     private static String[] Beginning = { "Kr", "Ca", "Ra", "Mrok", "Cru",
             "Ray", "Bre", "Zed", "Drak", "Mor", "Jag", "Mer", "Jar", "Mjol",

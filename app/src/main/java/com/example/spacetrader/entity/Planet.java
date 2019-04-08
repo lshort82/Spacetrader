@@ -2,9 +2,10 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Planet implements Visitable {
+public class Planet implements Visitable, Serializable {
     private String name;
     private List<Integer> resources;
     private int technologyLevel;

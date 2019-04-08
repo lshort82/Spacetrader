@@ -4,13 +4,15 @@ import android.util.Log;
 
 import com.example.spacetrader.model.PlayerInteractor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.NavigableMap;
 import java.util.Random;
 import java.util.TreeMap;
 
-public class SolarSystem implements Visitable {
+public class SolarSystem implements Visitable, Serializable {
     private List<Visitable> cosmicBodies;
     private String name; // this is the name of the star;
     private int xCoord;
@@ -104,7 +106,7 @@ public class SolarSystem implements Visitable {
 
     public String toString(){
         String ret = "";
-        ret = String.format("This is Solar System %s located at X:%d, Y:%d. It's cosmic bodies are:\n", name, xCoord, yCoord);
+        ret = String.format(Locale.ENGLISH, "This is Solar System %s located at X:%d, Y:%d. It's cosmic bodies are:\n", name, xCoord, yCoord);
         for(Visitable e : cosmicBodies) {
             ret = String.format("%s\n%s\n",ret,e.toString());
         }

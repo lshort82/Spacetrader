@@ -3,7 +3,9 @@ package com.example.spacetrader.view;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,10 @@ import com.example.spacetrader.model.PlayerInteractor;
 import com.example.spacetrader.model.UniverseInteractor;
 import com.example.spacetrader.model.VisitableInteractor;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,21 +75,28 @@ public class navigationActivity extends ListActivity {
         View saveView = li.inflate(R.layout.activity_save_prompt, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setView(saveView);
-
+        final File file = new File(this.getFilesDir(), "text.bin");
         final EditText userInput = saveView.findViewById(R.id.editText);
         alertDialogBuilder.setCancelable(false).setPositiveButton("Save",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
-                        SavedGames.addName(userInput.getText().toString());
+                        String name = userInput.getText().toString();
                         List<Visitable> places = new ArrayList<>();
                         for (Visitable e : VisitableInteractor.getVisitables()) {
                             places.add(e);
                         }
-                        SavedGames.addPlaces(places);
-                        SavedGames.addX(PlayerInteractor.getPlayer().getX());
-                        SavedGames.addY(PlayerInteractor.getPlayer().getY());
-                        SavedGames.addFuelLevel(PlayerInteractor.getPlayer().getFuel());
-                        SavedGames.addUniverse(UniverseInteractor.getUniverse());
+
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new FileOutputStream(file));
+                            out.writeObject(PlayerInteractor.getPlayer());
+                            out.writeObject(UniverseInteractor.getUniverse());
+                            out.writeObject(places);
+                            out.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+
                     }
                 })
                 .setNegativeButton("Cancel",

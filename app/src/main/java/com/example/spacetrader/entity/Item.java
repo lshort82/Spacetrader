@@ -1,6 +1,8 @@
 package com.example.spacetrader.entity;
 
-public enum Item {
+import java.io.Serializable;
+
+public enum Item implements Serializable {
     WATER(0, "Water", 0, 0, 2, 30, 3, 4, "Drought", Resources.LOTSOFWATER, Resources.DESERT, 30, 50),
     FURS(1, "Furs", 0, 0, 0, 250, 10, 10, "Cold", Resources.RICHFAUNA, Resources.LIFELESS, 230, 280),
     FOOD(2, "Food", 1, 0, 1, 100, 5, 5, "Crop fail", Resources.RICHSOIL, Resources.POORSOIL, 90, 160),

@@ -1,10 +1,11 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Universe {
+public class Universe implements Serializable {
     private Visitable[][] cosmicEntities;
     public Universe(){
         cosmicEntities = new Visitable[30][30];

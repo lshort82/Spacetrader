@@ -1,6 +1,8 @@
 package com.example.spacetrader.entity;
 
-public class Good {
+import java.io.Serializable;
+
+public class Good implements Serializable {
     private String name;
     private int mtlp;
     private int mtlu;

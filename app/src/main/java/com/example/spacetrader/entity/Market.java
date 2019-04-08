@@ -2,10 +2,11 @@ package com.example.spacetrader.entity;
 
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Market {
+public class Market implements Serializable {
     List<Item> inventory;
     List<Integer> quantity;
     List<Integer> price;

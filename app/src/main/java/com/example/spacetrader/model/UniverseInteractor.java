@@ -6,6 +6,9 @@ public class UniverseInteractor {
     private static Universe universe;
 
     public static Universe getUniverse() {
+        if(universe == null) {
+            return new Universe();
+        }
         return universe;
     }
 

@@ -43,6 +43,22 @@ public class Player {
         fuel = 30;
     }
 
+    public Player(String name, String diff, String ship, int spaceLeft, int pPoints, int fPoints, int tPoints, int ePoints, int credits, int x, int y, int fuel, List<Item> inventory, List<Integer> quantity) {
+        this.name = name;
+        difficulty = diff;
+        this.ship = ship;
+        pilotPoints = pPoints;
+        fighterPoints = fPoints;
+        traderPoints = tPoints;
+        engineerPoints = ePoints;
+        this.credits = credits;
+        this.spaceLeft= spaceLeft;
+        this.inventory = inventory;
+        this.quantity = quantity;
+        this.x = x;
+        this.y = y;
+        this.fuel = fuel;
+    }
     public void setName(String nam) {
         name = nam;
     }
@@ -198,5 +214,41 @@ public class Player {
         if (category.equals("engineer")) {
             engineerPoints += amount;
         }
+    }
+
+    public String getSaveFormat() {
+        String s = name + ";"
+                + difficulty +";"
+                + ship + ";"
+                + spaceLeft + ";"
+                + pilotPoints + ";"
+                + fighterPoints + ";"
+                + traderPoints  + ";"
+                + engineerPoints + ";"
+                + credits  + ";"
+                + x + ";"
+                + y + ";"
+                + fuel + ";";
+        for(Item e : inventory) {
+            s = s + e.getIndex() + ",";
+        }
+        if(inventory.size() == 0) {
+            s = s + "empty";
+        }
+        if(inventory.size() > 0) {
+            s = s.substring(0, s.length() - 1);
+        }
+        s = s + ";";
+        for(Integer e : quantity) {
+            s = s + e + ",";
+        }
+        if(quantity.size() == 0) {
+            s = s + "empty";
+        }
+        if(quantity.size() > 0) {
+            s = s.substring(0, s.length() - 1);
+        }
+        s = s + ";";
+        return s;
     }
 }

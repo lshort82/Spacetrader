@@ -25,6 +25,8 @@ import com.example.spacetrader.model.PlayerInteractor;
 import com.example.spacetrader.model.UniverseInteractor;
 import com.example.spacetrader.model.VisitableInteractor;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,16 +77,16 @@ public class navigationActivity extends ListActivity {
         alertDialogBuilder.setCancelable(false).setPositiveButton("Save",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
-                        SavedGames.addName(userInput.getText().toString());
-                        List<Visitable> places = new ArrayList<>();
-                        for (Visitable e : VisitableInteractor.getVisitables()) {
-                            places.add(e);
+                        String fileName = userInput.getText().toString() + "_save";
+                        File saveDirectory = getDir("Saves", MODE_PRIVATE);
+                        File saveFile = new File(saveDirectory, fileName);
+                        try {
+                            FileOutputStream saver = openFileOutput(fileName + ".txt", MODE_PRIVATE);
+                            saver.write(player.getSaveFormat().getBytes());
+                            saver.close();
+                        } catch(Exception e) {
+                            Toast.makeText(navigationActivity.this, "Error during save, try again", Toast.LENGTH_LONG).show();
                         }
-                        SavedGames.addPlaces(places);
-                        SavedGames.addX(PlayerInteractor.getPlayer().getX());
-                        SavedGames.addY(PlayerInteractor.getPlayer().getY());
-                        SavedGames.addFuelLevel(PlayerInteractor.getPlayer().getFuel());
-                        SavedGames.addUniverse(UniverseInteractor.getUniverse());
                     }
                 })
                 .setNegativeButton("Cancel",

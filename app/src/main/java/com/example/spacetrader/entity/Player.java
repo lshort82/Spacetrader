@@ -184,4 +184,19 @@ public class Player {
     public void setQuantity(List<Integer> quantity) {
         this.quantity = quantity;
     }
+
+    public void makeStatChange(String category, int amount) {
+        if (category.equals("pilot")) {
+            pilotPoints += amount;
+        }
+        if (category.equals("fighter")) {
+            fighterPoints += amount;
+        }
+        if (category.equals("trader")) {
+            traderPoints += amount;
+        }
+        if (category.equals("engineer")) {
+            engineerPoints += amount;
+        }
+    }
 }

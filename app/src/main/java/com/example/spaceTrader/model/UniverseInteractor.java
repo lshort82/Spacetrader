@@ -1,6 +1,6 @@
-package com.example.spacetrader.model;
+package com.example.spaceTrader.model;
 
-import com.example.spacetrader.entity.Universe;
+import com.example.spaceTrader.entity.Universe;
 
 public class UniverseInteractor {
     private static Universe universe;

@@ -1,4 +1,4 @@
-package com.example.spacetrader.entity;
+package com.example.spaceTrader.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class Player implements Serializable {
     private int y;
     private int fuel;
 
-    public static List<String> legalDifficulties = Arrays.asList("Easy", "Normal", "Difficult", "Insane", "Impossible");
+    public static final List<String> legalDifficulties = Arrays.asList("Easy", "Normal", "Difficult", "Insane", "Impossible");
 
     public Player() {
         this("","","", 0,0,0,0,0);
@@ -37,8 +37,8 @@ public class Player implements Serializable {
         engineerPoints = ePoints;
         this.credits = credits;
         spaceLeft= 10;
-        inventory = new ArrayList<Item>();
-        quantity = new ArrayList<Integer>();
+        inventory = new ArrayList<>();
+        quantity = new ArrayList<>();
         x = 15;
         y = 15;
         fuel = 30;
@@ -60,6 +60,7 @@ public class Player implements Serializable {
         this.y = y;
         this.fuel = fuel;
     }
+
     public void setName(String nam) {
         name = nam;
     }
@@ -72,9 +73,11 @@ public class Player implements Serializable {
         difficulty = diff;
     }
 
+
     public String getDifficulty() {
         return difficulty;
     }
+
 
     public void setPilotPoints(int points) {
         pilotPoints = points;
@@ -159,8 +162,10 @@ public class Player implements Serializable {
         return quantity;
     }
 
+
     public void setShip(String ship){this.ship = ship;}
 
+    @Override
     public String toString(){
         return "name: " + name + " difficulty: " + difficulty +  " ship: " + ship +  " pilot Skill: " + pilotPoints +  " fighter Skill: " + fighterPoints
                 +  " trader Skill: " + traderPoints +  " engineer Skill: " + engineerPoints +  " credits: " + credits;
@@ -218,38 +223,38 @@ public class Player implements Serializable {
     }
 
     public String getSaveFormat() {
-        String s = name + ";"
-                + difficulty +";"
+        StringBuilder s = new StringBuilder(name + ";"
+                + difficulty + ";"
                 + ship + ";"
                 + spaceLeft + ";"
                 + pilotPoints + ";"
                 + fighterPoints + ";"
-                + traderPoints  + ";"
+                + traderPoints + ";"
                 + engineerPoints + ";"
-                + credits  + ";"
+                + credits + ";"
                 + x + ";"
                 + y + ";"
-                + fuel + ";";
+                + fuel + ";");
         for(Item e : inventory) {
-            s = s + e.getIndex() + ",";
+            s.append(e.getIndex()).append(",");
         }
         if(inventory.size() == 0) {
-            s = s + "empty";
+            s.append("empty");
         }
         if(inventory.size() > 0) {
-            s = s.substring(0, s.length() - 1);
+            s = new StringBuilder(s.substring(0, s.length() - 1));
         }
-        s = s + ";";
+        s.append(";");
         for(Integer e : quantity) {
-            s = s + e + ",";
+            s.append(e).append(",");
         }
         if(quantity.size() == 0) {
-            s = s + "empty";
+            s.append("empty");
         }
         if(quantity.size() > 0) {
-            s = s.substring(0, s.length() - 1);
+            s = new StringBuilder(s.substring(0, s.length() - 1));
         }
-        s = s + ";";
-        return s;
+        s.append(";");
+        return s.toString();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.spacetrader.entity;
+package com.example.spaceTrader.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.Random;
 
 public class Universe implements Serializable {
-    private Visitable[][] cosmicEntities;
+    private final Visitable[][] cosmicEntities;
     public Universe(){
         cosmicEntities = new Visitable[30][30];
         cosmicEntities[15][15] = new SolarSystem(15,15,"Sol");
         populate(10);
     }
-    public Universe(int xdim, int ydim, int numEntities) {
-        if(xdim <= 0 || ydim <= 0) {
+    public Universe(int xDimension, int yDimension, int numEntities) {
+        if(xDimension <= 0 || yDimension <= 0) {
             throw new java.lang.IllegalArgumentException("Cannot have negative or 0 size");
         }
-        cosmicEntities = new Visitable[xdim][ydim];
+        cosmicEntities = new Visitable[xDimension][yDimension];
         populate(numEntities);
     }
 
@@ -47,6 +47,7 @@ public class Universe implements Serializable {
         return ret;
     }
 
+    @Override
     public String toString() {
         String ret = "The universe contains the following entities:";
         for(Visitable[] e : cosmicEntities) {
@@ -60,7 +61,7 @@ public class Universe implements Serializable {
     }
 
     public List<String> toStringList(){
-        List<String> ret = new ArrayList<String>();
+        List<String> ret = new ArrayList<>();
         for(Visitable[] e : cosmicEntities) {
             for(Visitable r: e) {
                 if(r != null) {

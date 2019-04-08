@@ -1,50 +1,34 @@
-package com.example.spacetrader.view;
+package com.example.spaceTrader.view;
 
 import android.app.ListActivity;
-import android.os.Bundle;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProviders;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Item;
-import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.entity.Universe;
-import com.example.spacetrader.entity.Visitable;
-import com.example.spacetrader.model.MarketInteractor;
-import com.example.spacetrader.model.PlayerInteractor;
-import com.example.spacetrader.model.UniverseInteractor;
-import com.example.spacetrader.model.VisitableInteractor;
+import com.example.spaceTrader.R;
+import com.example.spaceTrader.entity.Player;
+import com.example.spaceTrader.entity.Universe;
+import com.example.spaceTrader.entity.Visitable;
+import com.example.spaceTrader.model.PlayerInteractor;
+import com.example.spaceTrader.model.UniverseInteractor;
+import com.example.spaceTrader.model.VisitableInteractor;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SavedGames extends ListActivity {
 
-    private static ArrayList<Universe> universes = new ArrayList<>();
-    private static ArrayList<Integer> xs = new ArrayList<>();
-    private static ArrayList<Integer> ys = new ArrayList<>();
-    private static ArrayList<Integer> fuelLevels = new ArrayList<>();
-    private static ArrayList<String> name = new ArrayList<>();
-    private static ArrayList<List<Visitable>> places = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    private static final ArrayList<Universe> universes = new ArrayList<>();
+    private static final ArrayList<Integer> xs = new ArrayList<>();
+    private static final ArrayList<Integer> ys = new ArrayList<>();
+    private static final ArrayList<Integer> fuelLevels = new ArrayList<>();
+    private static final ArrayList<String> name = new ArrayList<>();
+    private static final ArrayList<List<Visitable>> places = new ArrayList<>();
 
 
     @Override
@@ -59,7 +43,7 @@ public class SavedGames extends ListActivity {
                 name.add(e.getName().substring(0, e.getName().length() - 9));
             }
         }
-        adapter=new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
                 name);
         setListAdapter(adapter);
@@ -73,7 +57,7 @@ public class SavedGames extends ListActivity {
                 ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File(getFilesDir(),fileName)));
                 PlayerInteractor.setPlayer((Player) in.readObject());
                 UniverseInteractor.setUniverse((Universe) in.readObject());
-                VisitableInteractor.setVisitables(UniverseInteractor.getUniverse().inRange(PlayerInteractor.getPlayer().getX(),PlayerInteractor.getPlayer().getY(),PlayerInteractor.getPlayer().getFuel()));
+                VisitableInteractor.setVisitableList(UniverseInteractor.getUniverse().inRange(PlayerInteractor.getPlayer().getX(), PlayerInteractor.getPlayer().getY(), PlayerInteractor.getPlayer().getFuel()));
                 in.close();
 //                String[] line = reader.readLine().split(";");
 //                String name = line[0];
@@ -104,41 +88,13 @@ public class SavedGames extends ListActivity {
 //                        quantity.add(Integer.parseInt(e));
 //                    }
 //                }
-//                Player player = new Player(name,difficulty,ship,spaceLeft,pilotPoints,fighterPoints,traderPoints,engineerPoints,credits,x,y,fuel,inventory,quantity);
-//                PlayerInteractor.setPlayer(player);
-//                Universe universe = UniverseInteractor.getUniverse();
-//                UniverseInteractor.setUniverse(universe);
-//                VisitableInteractor.setVisitables(universe.inRange(player.getX(),player.getY(),player.getFuel()));
+//
                 startActivity(new Intent(this, navigationActivity.class));
                 Toast.makeText(this,"Game Loaded!",Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 Toast.makeText(this,"Error during load",Toast.LENGTH_LONG).show();
             }
         }
-    }
-
-    public static void addPlaces(List<Visitable> plcs) {
-        places.add(plcs);
-    }
-
-    public static void addX(int x) {
-        xs.add(x);
-    }
-
-    public static void addY(int y) {
-        ys.add(y);
-    }
-
-    public static void addFuelLevel(int fuelLevel) {
-        fuelLevels.add(fuelLevel);
-    }
-
-    public static void addUniverse(Universe unvrs) {
-        universes.add(unvrs);
-    }
-
-    public static void addName(String name) {
-
     }
 }
 

@@ -12,7 +12,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="Space Left:"
+        android:text="@string/spaceLeft"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
@@ -23,9 +23,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="0"
+        android:text="@string/zero"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintEnd_toStartOf="@+id/fuellabel"
+        app:layout_constraintEnd_toStartOf="@+id/fuelLabel"
         app:layout_constraintStart_toEndOf="@+id/SpaceLeftLabel"
         app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
@@ -51,7 +51,7 @@
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="11dp"
         android:onClick="onTogglePerspective"
-        android:text="Switch perspective"
+        android:text="@string/switchPerspective"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -68,7 +68,7 @@
         android:layout_marginEnd="72dp"
         android:layout_marginBottom="660dp"
         android:gravity="center"
-        android:text="Store Inventory"
+        android:text="@string/storeInventory"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,12 +76,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/fuellabel"
+        android:id="@+id/fuelLabel"
         android:layout_width="66dp"
         android:layout_height="23dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Credits:"
+        android:text="@string/credits"
         app:layout_constraintEnd_toStartOf="@+id/credits"
         app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
@@ -91,7 +91,7 @@
         android:layout_height="35dp"
         android:layout_marginStart="310dp"
         android:layout_marginTop="8dp"
-        android:text="0"
+        android:text="@string/zero"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
@@ -105,7 +105,7 @@
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="8dp"
     android:onClick="onTravel"
-    android:text="Travel"
+    android:text="@string/travel"
     app:layout_constraintBottom_toTopOf="@+id/SpaceLeftLabel"
     app:layout_constraintEnd_toStartOf="@+id/locationLabel"
     app:layout_constraintHorizontal_bias="0.0"
@@ -121,7 +121,7 @@
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="8dp"
     android:onClick="onSave"
-    android:text="Save"
+    android:text="@string/save"
     app:layout_constraintBottom_toTopOf="@+id/SpaceLeftLabel"
     app:layout_constraintStart_toEndOf="@+id/locationLabel"
     app:layout_constraintHorizontal_bias="0.0"

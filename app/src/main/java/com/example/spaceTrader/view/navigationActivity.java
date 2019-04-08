@@ -1,50 +1,46 @@
-package com.example.spacetrader.view;
+package com.example.spaceTrader.view;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.entity.SimpleRandomEvent;
-import com.example.spacetrader.entity.Visitable;
-import com.example.spacetrader.model.MarketInteractor;
-import com.example.spacetrader.model.PlayerInteractor;
-import com.example.spacetrader.model.UniverseInteractor;
-import com.example.spacetrader.model.VisitableInteractor;
+import com.example.spaceTrader.R;
+import com.example.spaceTrader.entity.Player;
+import com.example.spaceTrader.entity.SimpleRandomEvent;
+import com.example.spaceTrader.entity.Visitable;
+import com.example.spaceTrader.model.MarketInteractor;
+import com.example.spaceTrader.model.PlayerInteractor;
+import com.example.spaceTrader.model.UniverseInteractor;
+import com.example.spaceTrader.model.VisitableInteractor;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class navigationActivity extends ListActivity {
 
-    List<Visitable> places = new ArrayList<>();
-    List<String> listItems = new ArrayList<String>();
-    ArrayAdapter<String> adapter;
-    Player player;
-    final double RANDOMCHANCE = 1;
+    private List<Visitable> places = new ArrayList<>();
+    private final List<String> listItems = new ArrayList<>();
+    private ArrayAdapter<String> adapter;
+    private Player player;
+    private final double RANDOM_CHANCE = 1;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_navigation);
-        adapter=new ArrayAdapter<String>(this,
+        adapter= new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
                 listItems);
         setListAdapter(adapter);
@@ -55,19 +51,23 @@ public class navigationActivity extends ListActivity {
         adapter.clear();
         player = PlayerInteractor.getPlayer();
         TextView fuel = findViewById(R.id.fuel);
-        fuel.setText(player.getFuel()+ "");
+        String fuelString = player.getFuel() + "";
+        fuel.setText(fuelString);
         TextView loc = findViewById(R.id.locationLabel);
-        loc.setText("Current: " + UniverseInteractor.getUniverse().getEntity(player.getX(),player.getY()).getName());
-        places = VisitableInteractor.getVisitables();
+        String currentString = "Current: " + UniverseInteractor.getUniverse().getEntity(player.getX(),player.getY()).getName();
+        loc.setText(currentString);
+        places = VisitableInteractor.getVisitableList();
         for(Visitable e : places){
             listItems.add(e.getName());
         }
         adapter.notifyDataSetChanged();
     }
-    public void addItems(View v) {
-        //listItems.add("Clicked : ");
-        adapter.notifyDataSetChanged();
-    }
+// --Commented out by Inspection START (4/8/2019 1:41 PM):
+//    public void addItems(View v) {
+//        //listItems.add("Clicked : ");
+//        adapter.notifyDataSetChanged();
+//    }
+// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
 
     public void onSave(View view) {
         LayoutInflater li = LayoutInflater.from(this);
@@ -106,12 +106,13 @@ public class navigationActivity extends ListActivity {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         if (position <= places.size()) {
-            if (places.get(position).hasinterior()) {
+            if (places.get(position).hasInterior()) {
                 places.get(position).onVisit();
-                VisitableInteractor.setVisitables(places.get(position).getInterior());
+                VisitableInteractor.setVisitableList(places.get(position).getInterior());
                 TextView loc = findViewById(R.id.locationLabel);
-                loc.setText("Select Planet");
-                if (Math.random() < RANDOMCHANCE) {
+                String planetString = "Select Planet";
+                loc.setText(planetString);
+                if (Math.random() < RANDOM_CHANCE) {
                     double threshold = 1 /(double) SimpleRandomEvent.values().length;
                     final int index = (int) (Math.random()/threshold);
                     new AlertDialog.Builder(this)

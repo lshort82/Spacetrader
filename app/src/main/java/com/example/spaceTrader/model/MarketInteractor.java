@@ -1,6 +1,6 @@
-package com.example.spacetrader.model;
+package com.example.spaceTrader.model;
 
-import com.example.spacetrader.entity.Market;
+import com.example.spaceTrader.entity.Market;
 
 public class MarketInteractor {
     private static Market market;

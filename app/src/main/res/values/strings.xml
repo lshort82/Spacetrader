@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">SpaceTrader</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="sixteen">16</string>
+    <string name="engineer">engineer</string>
+    <string name="fighter">fighter</string>
+    <string name="trader">trader</string>
+    <string name="name">Name</string>
+    <string name="skillPoints">Skill Points Left: </string>
+    <string name="pilot">Pilot</string>
+    <string name="skillSelection">Skill Selection</string>
+    <string name="gameDifficulty">Game Difficulty</string>
+    <string name="createCharacter">Create Character</string>
+    <string name="gameName">Name This Game: </string>
+    <string name="noSaved">No Saved Games</string>
+    <string name="chooseGame">CHOOSE GAME</string>
+    <string name="save">Save</string>
+    <string name="fuelLeft">Fuel Left</string>
+    <string name="sol">Current: SOL</string>
+    <string name="travel">Travel</string>
+    <string name="credits">Credits: </string>
+    <string name="storeInventory">Store Inventory</string>
+    <string name="switchPerspective">Switch Perspective</string>
+    <string name="spaceLeft">Space Left</string>
+    <string name="load">Load Saved Game</string>
+    <string name="newGame">New Game</string>
+    <string name="spaceTrader">SPACE TRADER</string>
+    <string name="exit">Exit</string>
 </resources>

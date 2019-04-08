@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.spacetrader"
+        applicationId "com.example.spaceTrader"
         minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
@@ -56,7 +56,6 @@ dependencies {
 
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
-    // use kapt for Kotlin
 
     // optional - RxJava support for Room
     implementation "android.arch.persistence.room:rxjava2:$room_version"

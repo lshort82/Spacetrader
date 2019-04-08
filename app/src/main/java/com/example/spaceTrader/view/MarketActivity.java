@@ -1,4 +1,4 @@
-package com.example.spacetrader.view;
+package com.example.spaceTrader.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,28 +15,25 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Item;
-import com.example.spacetrader.entity.Market;
-import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.entity.Visitable;
-import com.example.spacetrader.model.MarketInteractor;
-import com.example.spacetrader.model.PlayerInteractor;
-import com.example.spacetrader.model.UniverseInteractor;
-import com.example.spacetrader.model.VisitableInteractor;
+import com.example.spaceTrader.R;
+import com.example.spaceTrader.entity.Item;
+import com.example.spaceTrader.entity.Market;
+import com.example.spaceTrader.entity.Player;
+import com.example.spaceTrader.model.MarketInteractor;
+import com.example.spaceTrader.model.PlayerInteractor;
+import com.example.spaceTrader.model.UniverseInteractor;
+import com.example.spaceTrader.model.VisitableInteractor;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MarketActivity extends Activity {
 
 
     private MarketAdapter adapter;
     private static boolean isBuying = true;
-    private ArrayList<Item> e;
     private ArrayList<Integer> e2;
     private Market market;
     private Market playerMarket;
@@ -78,10 +75,10 @@ public class MarketActivity extends Activity {
     public void onResume() {
         super.onResume();
         playerMarket = new Market(player.getInventory(),player.getQuantity(), playerMarket.getPrice());
-        TextView creds = findViewById(R.id.credits);
-        creds.setText(player.getCredits()+ "");
+        TextView credits = findViewById(R.id.credits);
+        credits.setText(player.getCredits());
         TextView spaceLeft = findViewById(R.id.spaceLeft);
-        spaceLeft.setText(player.spaceLeft()+ "");
+        spaceLeft.setText(player.spaceLeft());
         if(isBuying) {
             adapter.setLists(market.getInventory(), market.getQuantity(), market.getPrice());
         }else {
@@ -89,7 +86,7 @@ public class MarketActivity extends Activity {
         }
         adapter.setOnItemClickListener(new MarketAdapter.OnItemClickListener() {
             @Override
-            public void onItemClicked(Item item, int quant) {
+            public void onItemClicked(Item item, int quantity) {
                 final Item item2 = item;
                 if(isBuying) {
                     final AlertDialog.Builder d = new AlertDialog.Builder(MarketActivity.this);
@@ -98,8 +95,8 @@ public class MarketActivity extends Activity {
                     d.setTitle("Buying " + item.getName());
                     d.setMessage("Select Quantity");
                     d.setView(dialogView);
-                    final NumberPicker numberPicker = (NumberPicker) dialogView.findViewById(R.id.dialog_number_picker);
-                    numberPicker.setMaxValue(quant);
+                    final NumberPicker numberPicker = dialogView.findViewById(R.id.dialog_number_picker);
+                    numberPicker.setMaxValue(quantity);
                     numberPicker.setMinValue(0);
                     numberPicker.setWrapSelectorWheel(false);
                     numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
@@ -132,8 +129,8 @@ public class MarketActivity extends Activity {
                     d.setTitle("Selling " + item.getName());
                     d.setMessage("Select Quantity");
                     d.setView(dialogView);
-                    final NumberPicker numberPicker = (NumberPicker) dialogView.findViewById(R.id.dialog_number_picker);
-                    numberPicker.setMaxValue(quant);
+                    final NumberPicker numberPicker = dialogView.findViewById(R.id.dialog_number_picker);
+                    numberPicker.setMaxValue(quantity);
                     numberPicker.setMinValue(0);
                     numberPicker.setWrapSelectorWheel(false);
                     numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
@@ -200,21 +197,23 @@ public class MarketActivity extends Activity {
 
     public void onTravel(View view) {
         PlayerInteractor.setPlayer(player);
-        VisitableInteractor.setVisitables(UniverseInteractor.getUniverse().inRange(player.getX(),player.getY(),player.getFuel()));
+        VisitableInteractor.setVisitableList(UniverseInteractor.getUniverse().inRange(player.getX(),player.getY(),player.getFuel()));
         startActivity(new Intent(this, navigationActivity.class));
     }
     public void onTogglePerspective(View view){
         isBuying = !isBuying;
         TextView header = findViewById(R.id.locationLabel);
         if(isBuying) {
-            header.setText("Store Inventory");
+            String inventory = "Store Inventory";
+            header.setText(inventory);
         } else {
-            header.setText("Your Inventory");
+            String inventory = "Your Inventory";
+            header.setText(inventory);
         }
         PlayerInteractor.setPlayer(player);
         onResume();
     }
-    public void showToast(String x){
+    private void showToast(String x){
         Toast.makeText(this,x, Toast.LENGTH_SHORT).show();
     }
 }

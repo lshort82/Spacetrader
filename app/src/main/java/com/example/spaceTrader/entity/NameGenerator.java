@@ -1,21 +1,21 @@
-package com.example.spacetrader.entity;
+package com.example.spaceTrader.entity;
 
 import java.io.Serializable;
 import java.util.Random;
 
 public class NameGenerator implements Serializable {
 
-    private static String[] Beginning = { "Kr", "Ca", "Ra", "Mrok", "Cru",
+    private static final String[] Beginning = { "Kr", "Ca", "Ra", "Mrok", "Cru",
             "Ray", "Bre", "Zed", "Drak", "Mor", "Jag", "Mer", "Jar", "Mjol",
             "Zork", "Mad", "Cry", "Zur", "Creo", "Azak", "Azur", "Rei", "Cro",
             "Mar", "Luk" };
-    private static String[] Middle = { "air", "ir", "mi", "sor", "mee", "clo",
+    private static final String[] Middle = { "air", "ir", "mi", "sor", "mee", "clo",
             "red", "cra", "ark", "arc", "miri", "lori", "cres", "mur", "zer",
             "marac", "zoir", "slamar", "salmar", "urak" };
-    private static String[] End = { "d", "ed", "ark", "arc", "es", "er", "der",
+    private static final String[] End = { "d", "ed", "ark", "arc", "es", "er", "der",
             "tron", "med", "ure", "zur", "cred", "mur" };
 
-    private static Random rand = new Random();
+    private static final Random rand = new Random();
 
     public static String generateName() {
 

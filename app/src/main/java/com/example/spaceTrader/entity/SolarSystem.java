@@ -1,8 +1,6 @@
-package com.example.spacetrader.entity;
+package com.example.spaceTrader.entity;
 
-import android.util.Log;
-
-import com.example.spacetrader.model.PlayerInteractor;
+import com.example.spaceTrader.model.PlayerInteractor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,40 +11,34 @@ import java.util.Random;
 import java.util.TreeMap;
 
 public class SolarSystem implements Visitable, Serializable {
-    private List<Visitable> cosmicBodies;
-    private String name; // this is the name of the star;
-    private int xCoord;
-    private int yCoord;
+    private final List<Visitable> cosmicBodies;
+    private final String name; // this is the name of the star;
+    private final int xCoordinate;
+    private final int yCoordinate;
 
 
     public SolarSystem(int x, int y){
         this.name = NameGenerator.generateName();
-        this.xCoord = x;
-        this. yCoord = y;
-        cosmicBodies = new ArrayList<Visitable>();
+        this.xCoordinate = x;
+        this.yCoordinate = y;
+        cosmicBodies = new ArrayList<>();
         randomGen(new Random().nextInt(6) + 1);
     }
 
     public SolarSystem(int x, int y, String name){
         this.name = name;
-        this.xCoord = x;
-        this.yCoord = y;
+        this.xCoordinate = x;
+        this.yCoordinate = y;
         cosmicBodies = new ArrayList<>();
         cosmicBodies.add(new Planet("Earth", generateResources(), 7, 0));
-    }
-    public SolarSystem(int x, int y, String name,  List<Visitable> cosmicBodies) {
-        this.name = name;
-        this.xCoord = x;
-        this. yCoord = y;
-        this.cosmicBodies = cosmicBodies;
     }
 
     public void onVisit(){
         Player player = PlayerInteractor.getPlayer();
-        int distance = Math.abs(player.getX() - xCoord) < Math.abs(player.getY() - yCoord) ? Math.abs(player.getX() - xCoord) : Math.abs(player.getY() - yCoord);
+        int distance = Math.abs(player.getX() - xCoordinate) < Math.abs(player.getY() - yCoordinate) ? Math.abs(player.getX() - xCoordinate) : Math.abs(player.getY() - yCoordinate);
         player.useFuel(distance);
-        player.setX(xCoord);
-        player.setY(yCoord);
+        player.setX(xCoordinate);
+        player.setY(yCoordinate);
         PlayerInteractor.setPlayer(player);
     }
 
@@ -59,7 +51,7 @@ public class SolarSystem implements Visitable, Serializable {
 
     private List<Integer> generateResources() {
         Random rand = new Random();
-        List<Integer> ret = new ArrayList<Integer>();
+        List<Integer> ret = new ArrayList<>();
         RandomCollection<Integer> rc = new RandomCollection<Integer>()
                 .add(40,0)
                 .add(25,1)
@@ -88,25 +80,32 @@ public class SolarSystem implements Visitable, Serializable {
         return ret;
     }
 
-    public List<Visitable> getCosmicBodies() {
-        return cosmicBodies;
-    }
+// --Commented out by Inspection START (4/8/2019 1:41 PM):
+//    public List<Visitable> getCosmicBodies() {
+//        return cosmicBodies;
+// --Commented out by Inspection START (4/8/2019 1:41 PM):
+// --Commented out by Inspection START (4/8/2019 1:41 PM):
+//////    }
+////// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
+// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
+// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
 
     public String getName() {
         return  name;
     }
 
-    public int getxCoord() {
-        return xCoord;
+    public int getXCoordinate() {
+        return xCoordinate;
     }
 
-    public int getyCoord() {
-        return yCoord;
+    public int getYCoordinate() {
+        return yCoordinate;
     }
 
+    @Override
     public String toString(){
-        String ret = "";
-        ret = String.format(Locale.ENGLISH, "This is Solar System %s located at X:%d, Y:%d. It's cosmic bodies are:\n", name, xCoord, yCoord);
+        String ret;
+        ret = String.format(Locale.ENGLISH, "This is Solar System %s located at X:%d, Y:%d. It's cosmic bodies are:\n", name, xCoordinate, yCoordinate);
         for(Visitable e : cosmicBodies) {
             ret = String.format("%s\n%s\n",ret,e.toString());
         }
@@ -114,7 +113,7 @@ public class SolarSystem implements Visitable, Serializable {
     }
 
     private class RandomCollection<E> {
-        private final NavigableMap<Double, E> map = new TreeMap<Double, E>();
+        private final NavigableMap<Double, E> map = new TreeMap<>();
         private final Random random;
         private double total = 0;
 
@@ -139,7 +138,7 @@ public class SolarSystem implements Visitable, Serializable {
         }
     }
 
-    public boolean hasinterior() {
+    public boolean hasInterior() {
         return true;
     }
     public List<Visitable> getInterior() {

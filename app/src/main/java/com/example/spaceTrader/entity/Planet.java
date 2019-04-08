@@ -1,4 +1,4 @@
-package com.example.spacetrader.entity;
+package com.example.spaceTrader.entity;
 
 import android.util.Log;
 
@@ -6,11 +6,11 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Planet implements Visitable, Serializable {
-    private String name;
-    private List<Integer> resources;
-    private int technologyLevel;
-    private int position;
-    private Market market;
+    private final String name;
+    private final List<Integer> resources;
+    private final int technologyLevel;
+    private final int position;
+    private final Market market;
     public Planet(String name, List<Integer> resources, int technologyLevel, int position) {
         this.name = name;
         this.resources = resources;
@@ -20,16 +20,20 @@ public class Planet implements Visitable, Serializable {
     }
 
     public void onVisit() {
-        Log.i("Visit","Vitisting " + this.toString());
+        Log.i("Visit","Visiting " + this.toString());
     }
 
     public int getTechnologyLevel() {
         return technologyLevel;
     }
 
-    public int getPosition() {
-        return position;
-    }
+// --Commented out by Inspection START (4/8/2019 1:41 PM):
+// --Commented out by Inspection START (4/8/2019 1:41 PM):
+////    public int getPosition() {
+////        return position;
+////    }
+//// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
+// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
 
 
     public List<Integer> getResources(){
@@ -41,9 +45,9 @@ public class Planet implements Visitable, Serializable {
     }
 
     public String resourceString(){
-        String ret = "";
+        StringBuilder ret = new StringBuilder();
         for(Integer e : resources) {
-            ret += Resources.values()[e].getDescription() +", ";
+            ret.append(Resources.values()[e].getDescription()).append(", ");
         }
         return ret.substring(0,ret.length() - 2);
     }
@@ -52,12 +56,12 @@ public class Planet implements Visitable, Serializable {
         return market;
     }
 
-
+    @Override
     public String toString(){
         return position + ") Planet " + name + "is at technology Level " + technologyLevel +
                 " and has resources: " + resourceString();
     }
-    public boolean hasinterior() {
+    public boolean hasInterior() {
         return false;
     }
     public List<Visitable> getInterior() {

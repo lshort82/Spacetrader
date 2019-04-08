@@ -16,7 +16,7 @@
         android:layout_marginEnd="72dp"
         android:layout_marginBottom="660dp"
         android:gravity="center"
-        android:text="Current: SOL"
+        android:text="@string/sol"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,12 +24,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/fuellabel"
+        android:id="@+id/fuelLabel"
         android:layout_width="66dp"
         android:layout_height="20dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="244dp"
-        android:text="Fuel left:"
+        android:text="@string/fuelLeft"
         app:layout_constraintEnd_toEndOf="@+id/fuel"
         app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
@@ -38,7 +38,7 @@
         android:layout_width="85dp"
         android:layout_height="35dp"
         android:layout_marginStart="288dp"
-        android:text="0"
+        android:text="@string/zero"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
@@ -53,8 +53,7 @@
         android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credits" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/saveButton"
@@ -65,7 +64,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="onSave"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintStart_toEndOf="@+id/locationLabel"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toTopOf="parent"

@@ -1,23 +1,21 @@
-package com.example.spacetrader.entity;
-
-import android.widget.Toast;
+package com.example.spaceTrader.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Market implements Serializable {
-    List<Item> inventory;
-    List<Integer> quantity;
-    List<Integer> price;
-    int techLevelofLocation;
+    private final List<Item> inventory;
+    private final List<Integer> quantity;
+    private final List<Integer> price;
+    private final int techLevelOfLocation;
     public Market(Planet planet){ // planet will be used for further implementation eventually
         this.inventory = new ArrayList<>();
         this.quantity = new ArrayList<>();
         this.price = new ArrayList<>();
-        this.techLevelofLocation = planet.getTechnologyLevel();
+        this.techLevelOfLocation = planet.getTechnologyLevel();
         for (Item e : Item.values()){
-            if(e.getMinTechProd() < this.techLevelofLocation) {
+            if(e.getMinTechProd() < this.techLevelOfLocation) {
                 this.inventory.add(e);
                 this.quantity.add((int)(Math.random() * 10) + 1);
             }
@@ -33,22 +31,24 @@ public class Market implements Serializable {
         for(int i =price.size(); i< inventory.size(); i++){
             price.add(getPrice(i));
         }
-        techLevelofLocation = 0;
+        techLevelOfLocation = 0;
     }
     public Market(List<Item> inventory, List<Integer> quantity){
         this.inventory=inventory;
         this.quantity = quantity;
-        price = new ArrayList<Integer>();
+        price = new ArrayList<>();
         for(int i =0; i< inventory.size(); i++){
             price.add(getPrice(i));
         }
-        techLevelofLocation = 0;
+        techLevelOfLocation = 0;
     }
-    public void resetPrices(){
-        for(int i =0; i< inventory.size(); i++){
-            price.set(i,getPrice(i));
-        }
-    }
+// --Commented out by Inspection START (4/8/2019 1:41 PM):
+//    public void resetPrices(){
+//        for(int i =0; i< inventory.size(); i++){
+//            price.set(i,getPrice(i));
+//        }
+//    }
+// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
     public int getPrice(int index) {
         if(index >= inventory.size()) {
             return 99999;
@@ -59,7 +59,7 @@ public class Market implements Serializable {
             var = 1;
         }
         var = (int)(Math.random()*inventory.get(index).getVariance() + 1) * var;
-        var += inventory.get(index).getIncPerTech() * (techLevelofLocation);
+        var += inventory.get(index).getIncPerTech() * (techLevelOfLocation);
         return base + var;
     }
 
@@ -67,7 +67,7 @@ public class Market implements Serializable {
         int base = item.getPrice();
         int var = Math.random() >.5 ? 1 : -1;
         var = (int)(Math.random()*item.getVariance() + 1) * var;
-        var += item.getIncPerTech() * (techLevelofLocation);
+        var += item.getIncPerTech() * (techLevelOfLocation);
         return base + var;
     }
 

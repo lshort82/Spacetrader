@@ -27,6 +27,8 @@ import com.example.spacetrader.model.VisitableInteractor;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,8 +84,10 @@ public class navigationActivity extends ListActivity {
                         File saveFile = new File(saveDirectory, fileName);
                         try {
                             FileOutputStream saver = openFileOutput(fileName + ".txt", MODE_PRIVATE);
-                            saver.write(player.getSaveFormat().getBytes());
-                            saver.close();
+                            ObjectOutputStream saver2 = new ObjectOutputStream(saver);
+                            saver2.writeObject(player);
+                            saver2.writeObject(UniverseInteractor.getUniverse());
+                            saver2.close();
                         } catch(Exception e) {
                             Toast.makeText(navigationActivity.this, "Error during save, try again", Toast.LENGTH_LONG).show();
                         }

@@ -32,6 +32,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,41 +70,45 @@ public class SavedGames extends ListActivity {
         if (position <= name.size()) {
             String fileName = name.get(position)+ "_save.txt";
             try {
-                BufferedReader reader = new BufferedReader(new FileReader(new File(getFilesDir(),fileName)));
-                String[] line = reader.readLine().split(";");
-                String name = line[0];
-                String difficulty = line[1];
-                String ship = line[2];
-                int spaceLeft = Integer.parseInt(line[3]);
-                int pilotPoints = Integer.parseInt(line[4]);
-                int fighterPoints = Integer.parseInt(line[5]);
-                int traderPoints = Integer.parseInt(line[6]);
-                int engineerPoints = Integer.parseInt(line[7]);
-                int credits = Integer.parseInt(line[8]);
-                //int x = Integer.parseInt(line[9]);
-                //int y = Integer.parseInt(line[10]);
-                int x = 15;
-                int y = 15;
-                int fuel = Integer.parseInt(line[11]);
-                String[] items = line[12].split(",");
-                List<Item> inventory = new ArrayList<>();
-                if(!items[0].equals("empty")) {
-                    for (String e : items) {
-                        inventory.add(Item.values()[Integer.parseInt(e)]);
-                    }
-                }
-                List<Integer> quantity = new ArrayList<>();
-                String[] quantities = line[13].split(",");
-                if(!quantities[0].equals("empty")) {
-                    for (String e: quantities) {
-                        quantity.add(Integer.parseInt(e));
-                    }
-                }
-                Player player = new Player(name,difficulty,ship,spaceLeft,pilotPoints,fighterPoints,traderPoints,engineerPoints,credits,x,y,fuel,inventory,quantity);
-                PlayerInteractor.setPlayer(player);
-                Universe universe = UniverseInteractor.getUniverse();
-                UniverseInteractor.setUniverse(universe);
-                VisitableInteractor.setVisitables(universe.inRange(player.getX(),player.getY(),player.getFuel()));
+                ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File(getFilesDir(),fileName)));
+                PlayerInteractor.setPlayer((Player) in.readObject());
+                UniverseInteractor.setUniverse((Universe) in.readObject());
+                VisitableInteractor.setVisitables(UniverseInteractor.getUniverse().inRange(PlayerInteractor.getPlayer().getX(),PlayerInteractor.getPlayer().getY(),PlayerInteractor.getPlayer().getFuel()));
+                in.close();
+//                String[] line = reader.readLine().split(";");
+//                String name = line[0];
+//                String difficulty = line[1];
+//                String ship = line[2];
+//                int spaceLeft = Integer.parseInt(line[3]);
+//                int pilotPoints = Integer.parseInt(line[4]);
+//                int fighterPoints = Integer.parseInt(line[5]);
+//                int traderPoints = Integer.parseInt(line[6]);
+//                int engineerPoints = Integer.parseInt(line[7]);
+//                int credits = Integer.parseInt(line[8]);
+//                //int x = Integer.parseInt(line[9]);
+//                //int y = Integer.parseInt(line[10]);
+//                int x = 15;
+//                int y = 15;
+//                int fuel = Integer.parseInt(line[11]);
+//                String[] items = line[12].split(",");
+//                List<Item> inventory = new ArrayList<>();
+//                if(!items[0].equals("empty")) {
+//                    for (String e : items) {
+//                        inventory.add(Item.values()[Integer.parseInt(e)]);
+//                    }
+//                }
+//                List<Integer> quantity = new ArrayList<>();
+//                String[] quantities = line[13].split(",");
+//                if(!quantities[0].equals("empty")) {
+//                    for (String e: quantities) {
+//                        quantity.add(Integer.parseInt(e));
+//                    }
+//                }
+//                Player player = new Player(name,difficulty,ship,spaceLeft,pilotPoints,fighterPoints,traderPoints,engineerPoints,credits,x,y,fuel,inventory,quantity);
+//                PlayerInteractor.setPlayer(player);
+//                Universe universe = UniverseInteractor.getUniverse();
+//                UniverseInteractor.setUniverse(universe);
+//                VisitableInteractor.setVisitables(universe.inRange(player.getX(),player.getY(),player.getFuel()));
                 startActivity(new Intent(this, navigationActivity.class));
                 Toast.makeText(this,"Game Loaded!",Toast.LENGTH_LONG).show();
             } catch (Exception e) {

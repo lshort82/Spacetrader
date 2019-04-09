@@ -1,4 +1,4 @@
-package com.example.spacetrader.view;
+package com.example.spaceTrader.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,14 +15,14 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Item;
-import com.example.spacetrader.entity.Market;
-import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.model.MarketInteractor;
-import com.example.spacetrader.model.PlayerInteractor;
-import com.example.spacetrader.model.UniverseInteractor;
-import com.example.spacetrader.model.VisitableInteractor;
+import com.example.spaceTrader.R;
+import com.example.spaceTrader.entity.Item;
+import com.example.spaceTrader.entity.Market;
+import com.example.spaceTrader.entity.Player;
+import com.example.spaceTrader.model.MarketInteractor;
+import com.example.spaceTrader.model.PlayerInteractor;
+import com.example.spaceTrader.model.UniverseInteractor;
+import com.example.spaceTrader.model.VisitableInteractor;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -75,9 +75,9 @@ public class MarketActivity extends Activity {
         super.onResume();
         playerMarket = new Market(player.getInventory(),player.getQuantity(), playerMarket.getPrice());
         TextView credits = findViewById(R.id.credits);
-        credits.setText(player.getCredits());
+        credits.setText(String.valueOf(player.getCredits()));
         TextView spaceLeft = findViewById(R.id.spaceLeft);
-        spaceLeft.setText(player.spaceLeft());
+        spaceLeft.setText(String.valueOf(player.spaceLeft()));
         if(isBuying) {
             adapter.setLists(market.getInventory(), market.getQuantity(), market.getPrice());
         }else {

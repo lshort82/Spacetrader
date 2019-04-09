@@ -1,6 +1,6 @@
-package com.example.spacetrader.model;
+package com.example.spaceTrader.model;
 
-import com.example.spacetrader.entity.Visitable;
+import com.example.spaceTrader.entity.Visitable;
 
 import java.util.List;
 

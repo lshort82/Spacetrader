@@ -1,6 +1,6 @@
-package com.example.spacetrader.model;
+package com.example.spaceTrader.model;
 
-import com.example.spacetrader.entity.Player;
+import com.example.spaceTrader.entity.Player;
 
 public class PlayerInteractor {
 

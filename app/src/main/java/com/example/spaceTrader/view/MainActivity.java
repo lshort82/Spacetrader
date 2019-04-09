@@ -1,4 +1,4 @@
-package com.example.spacetrader.view;
+package com.example.spaceTrader.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.spacetrader.R;
+import com.example.spaceTrader.R;
 
 public class MainActivity extends Activity {
 

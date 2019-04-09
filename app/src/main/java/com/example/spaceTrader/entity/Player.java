@@ -1,5 +1,7 @@
 package com.example.spaceTrader.entity;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +9,7 @@ import java.util.List;
 
 public class Player implements Serializable {
     private String name;
-    private String difficulty;
+    private final String difficulty;
     private String ship;
     private List<Item> inventory;
     private List<Integer> quantity;
@@ -27,7 +29,7 @@ public class Player implements Serializable {
         this("","","", 0,0,0,0,0);
     }
 
-    public Player(String nam, String diff, String ship, int pPoints, int fPoints, int tPoints, int ePoints, int credits) {
+    private Player(String nam, String diff, String ship, int pPoints, int fPoints, int tPoints, int ePoints, int credits) {
         name = nam;
         difficulty = diff;
         this.ship = ship;
@@ -69,14 +71,14 @@ public class Player implements Serializable {
         return name;
     }
 
-    public void setDifficulty(String diff) {
+  /*  public void setDifficulty(String diff) {
         difficulty = diff;
     }
 
 
     public String getDifficulty() {
         return difficulty;
-    }
+    }*/
 
 
     public void setPilotPoints(int points) {
@@ -115,7 +117,7 @@ public class Player implements Serializable {
 
     public int getCredits(){return credits;}
 
-    public String getShip(){return ship;}
+  /*  public String getShip(){return ship;}*/
 
     public int spaceLeft(){
         return spaceLeft;
@@ -165,6 +167,7 @@ public class Player implements Serializable {
 
     public void setShip(String ship){this.ship = ship;}
 
+    @NonNull
     @Override
     public String toString(){
         return "name: " + name + " difficulty: " + difficulty +  " ship: " + ship +  " pilot Skill: " + pilotPoints +  " fighter Skill: " + fighterPoints
@@ -191,21 +194,21 @@ public class Player implements Serializable {
         return fuel;
     }
 
-    public void setFuel(int fuel) {
+   /* public void setFuel(int fuel) {
         this.fuel = fuel;
-    }
+    }*/
 
     public void useFuel(int x) {
         fuel -= x;
     }
 
-    public void setInventory(List<Item> inventory) {
+  /*  public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
     }
 
     public void setQuantity(List<Integer> quantity) {
         this.quantity = quantity;
-    }
+    }*/
 
     public void makeStatChange(String category, int amount) {
         if (category.equals("pilot")) {
@@ -222,7 +225,7 @@ public class Player implements Serializable {
         }
     }
 
-    public String getSaveFormat() {
+   /* public String getSaveFormat() {
         StringBuilder s = new StringBuilder(name + ";"
                 + difficulty + ";"
                 + ship + ";"
@@ -256,5 +259,5 @@ public class Player implements Serializable {
         }
         s.append(";");
         return s.toString();
-    }
+    }*/
 }

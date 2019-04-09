@@ -34,7 +34,6 @@ public class navigationActivity extends ListActivity {
     private final List<String> listItems = new ArrayList<>();
     private ArrayAdapter<String> adapter;
     private Player player;
-    private final double RANDOM_CHANCE = 1;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -81,7 +80,7 @@ public class navigationActivity extends ListActivity {
                     public void onClick(DialogInterface dialog,int id) {
                         String fileName = userInput.getText().toString() + "_save";
                         File saveDirectory = getDir("Saves", MODE_PRIVATE);
-                        File saveFile = new File(saveDirectory, fileName);
+                        //File saveFile = new File(saveDirectory, fileName);
                         try {
                             FileOutputStream saver = openFileOutput(fileName + ".txt", MODE_PRIVATE);
                             ObjectOutputStream saver2 = new ObjectOutputStream(saver);
@@ -112,6 +111,7 @@ public class navigationActivity extends ListActivity {
                 TextView loc = findViewById(R.id.locationLabel);
                 String planetString = "Select Planet";
                 loc.setText(planetString);
+                double RANDOM_CHANCE = 1;
                 if (Math.random() < RANDOM_CHANCE) {
                     double threshold = 1 /(double) SimpleRandomEvent.values().length;
                     final int index = (int) (Math.random()/threshold);

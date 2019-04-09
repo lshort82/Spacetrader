@@ -53,9 +53,7 @@ public enum Item implements Serializable {
         return name;
     }
 
-    public int getMaxSpacePrice() {
-        return maxSpacePrice;
-    }
+    /*public int getMaxSpacePrice() { return maxSpacePrice; }
 
     public int getMaxTechProd() {
         return maxTechProd;
@@ -64,14 +62,12 @@ public enum Item implements Serializable {
     public int getMinSpacePrice() {
         return minSpacePrice;
     }
-
+*/
     public int getMinTechProd() {
         return minTechProd;
     }
 
-    public int getMinTechUse() {
-        return minTechUse;
-    }
+  /*  public int getMinTechUse() { return minTechUse; }*/
 
     public int getPrice() {
         return price;
@@ -81,17 +77,13 @@ public enum Item implements Serializable {
         return variance;
     }
 
-    public Resources getCheap() {
-        return cheap;
-    }
+   /* public Resources getCheap() { return cheap; }
 
-    public Resources getExpensive() {
-        return expensive;
-    }
+    public Resources getExpensive() { return expensive; }
 
     public String getEvent() {
         return event;
-    }
+    }*/
 
     public int getIncPerTech() {
         return incPerTech;

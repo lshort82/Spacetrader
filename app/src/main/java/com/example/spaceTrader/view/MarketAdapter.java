@@ -69,7 +69,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
 
 
 
-            public MarketViewHolder(@NonNull View itemView) {
+            MarketViewHolder(@NonNull View itemView) {
                 super(itemView);
                 name = itemView.findViewById(R.id.text_item_name);
                 quantity = itemView.findViewById(R.id.text_item_quantity);

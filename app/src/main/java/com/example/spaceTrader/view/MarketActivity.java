@@ -34,7 +34,7 @@ public class MarketActivity extends Activity {
 
     private MarketAdapter adapter;
     private static boolean isBuying = true;
-    private ArrayList<Integer> e2;
+    //private ArrayList<Integer> e2;
     private Market market;
     private Market playerMarket;
     private Player player;
@@ -173,7 +173,7 @@ public class MarketActivity extends Activity {
                     public void onClick(DialogInterface dialog,int id) {
                         String fileName = userInput.getText().toString() + "_save";
                         File saveDirectory = getDir("Saves", MODE_PRIVATE);
-                        File saveFile = new File(saveDirectory, fileName);
+                        //File saveFile = new File(saveDirectory, fileName);
                         try {
                             FileOutputStream saver = openFileOutput(fileName + ".txt", MODE_PRIVATE);
                             ObjectOutputStream saver2 = new ObjectOutputStream(saver);

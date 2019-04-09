@@ -1,5 +1,7 @@
 package com.example.spaceTrader.entity;
 
+import android.support.annotation.NonNull;
+
 import com.example.spaceTrader.model.PlayerInteractor;
 
 import java.io.Serializable;
@@ -94,14 +96,15 @@ public class SolarSystem implements Visitable, Serializable {
         return  name;
     }
 
-    public int getXCoordinate() {
+    /*public int getXCoordinate() {
         return xCoordinate;
     }
 
     public int getYCoordinate() {
         return yCoordinate;
-    }
+    }*/
 
+    @NonNull
     @Override
     public String toString(){
         String ret;
@@ -117,22 +120,22 @@ public class SolarSystem implements Visitable, Serializable {
         private final Random random;
         private double total = 0;
 
-        public RandomCollection() {
+        RandomCollection() {
             this(new Random());
         }
 
-        public RandomCollection(Random random) {
+        RandomCollection(Random random) {
             this.random = random;
         }
 
-        public RandomCollection<E> add(double weight, E result) {
+        RandomCollection<E> add(double weight, E result) {
             if (weight <= 0) return this;
             total += weight;
             map.put(total, result);
             return this;
         }
 
-        public E next() {
+        E next() {
             double value = random.nextDouble() * total;
             return map.higherEntry(value).getValue();
         }

@@ -1,10 +1,6 @@
-package com.example.spacetrader.model;
+package com.example.spaceTrader.model;
 
-import android.util.Log;
-
-import com.example.spacetrader.entity.Player;
-
-import java.util.List;
+import com.example.spaceTrader.entity.Player;
 
 public class PlayerInteractor {
 
@@ -17,7 +13,7 @@ public class PlayerInteractor {
         return player;
     }
 
-    public static void setPlayer(Player newplayer) {
-        player = newplayer;
+    public static void setPlayer(Player newPlayer) {
+        player = newPlayer;
     }
 }

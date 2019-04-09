@@ -1,5 +1,7 @@
 package com.example.spaceTrader.entity;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +14,13 @@ public class Universe implements Serializable {
         cosmicEntities[15][15] = new SolarSystem(15,15,"Sol");
         populate(10);
     }
-    public Universe(int xDimension, int yDimension, int numEntities) {
+    /*public Universe(int xDimension, int yDimension, int numEntities) {
         if(xDimension <= 0 || yDimension <= 0) {
             throw new java.lang.IllegalArgumentException("Cannot have negative or 0 size");
         }
         cosmicEntities = new Visitable[xDimension][yDimension];
         populate(numEntities);
-    }
+    }*/
 
     private void populate(int numEntities){
         Random rand = new Random();
@@ -47,6 +49,7 @@ public class Universe implements Serializable {
         return ret;
     }
 
+    @NonNull
     @Override
     public String toString() {
         String ret = "The universe contains the following entities:";

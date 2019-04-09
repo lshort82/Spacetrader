@@ -23,12 +23,12 @@ import java.util.List;
 
 public class SavedGames extends ListActivity {
 
-    private static final ArrayList<Universe> universes = new ArrayList<>();
+   /* private static final ArrayList<Universe> universes = new ArrayList<>();
     private static final ArrayList<Integer> xs = new ArrayList<>();
     private static final ArrayList<Integer> ys = new ArrayList<>();
-    private static final ArrayList<Integer> fuelLevels = new ArrayList<>();
+    private static final ArrayList<Integer> fuelLevels = new ArrayList<>();*/
     private static final ArrayList<String> name = new ArrayList<>();
-    private static final ArrayList<List<Visitable>> places = new ArrayList<>();
+    //private static final ArrayList<List<Visitable>> places = new ArrayList<>();
 
 
     @Override

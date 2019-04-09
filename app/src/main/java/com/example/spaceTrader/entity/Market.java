@@ -42,14 +42,8 @@ public class Market implements Serializable {
         }
         techLevelOfLocation = 0;
     }
-// --Commented out by Inspection START (4/8/2019 1:41 PM):
-//    public void resetPrices(){
-//        for(int i =0; i< inventory.size(); i++){
-//            price.set(i,getPrice(i));
-//        }
-//    }
-// --Commented out by Inspection STOP (4/8/2019 1:41 PM)
-    public int getPrice(int index) {
+
+    private int getPrice(int index) {
         if(index >= inventory.size()) {
             return 99999;
         }
@@ -63,13 +57,15 @@ public class Market implements Serializable {
         return base + var;
     }
 
-    public int salePrice(Item item) {
-        int base = item.getPrice();
-        int var = Math.random() >.5 ? 1 : -1;
-        var = (int)(Math.random()*item.getVariance() + 1) * var;
-        var += item.getIncPerTech() * (techLevelOfLocation);
-        return base + var;
-    }
+// --Commented out by Inspection START (4/8/2019 7:33 PM):
+//    public int salePrice(Item item) {
+//        int base = item.getPrice();
+//        int var = Math.random() >.5 ? 1 : -1;
+//        var = (int)(Math.random()*item.getVariance() + 1) * var;
+//        var += item.getIncPerTech() * (techLevelOfLocation);
+//        return base + var;
+//    }
+// --Commented out by Inspection STOP (4/8/2019 7:33 PM)
 
     public List<Integer> getQuantity() {
         return quantity;

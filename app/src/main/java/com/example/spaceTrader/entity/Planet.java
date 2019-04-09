@@ -1,9 +1,11 @@
 package com.example.spaceTrader.entity;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.Serializable;
 import java.util.List;
+
 
 public class Planet implements Visitable, Serializable {
     private final String name;
@@ -36,15 +38,15 @@ public class Planet implements Visitable, Serializable {
 // --Commented out by Inspection STOP (4/8/2019 1:41 PM)
 
 
-    public List<Integer> getResources(){
+   /* public List<Integer> getResources(){
         return resources;
-    }
+    }*/
 
     public String getName(){
         return name;
     }
 
-    public String resourceString(){
+    private String resourceString(){
         StringBuilder ret = new StringBuilder();
         for(Integer e : resources) {
             ret.append(Resources.values()[e].getDescription()).append(", ");
@@ -56,6 +58,7 @@ public class Planet implements Visitable, Serializable {
         return market;
     }
 
+    @NonNull
     @Override
     public String toString(){
         return position + ") Planet " + name + "is at technology Level " + technologyLevel +

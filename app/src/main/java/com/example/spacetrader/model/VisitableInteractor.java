@@ -1,17 +1,17 @@
-package com.example.spacetrader.model;
+package com.example.spaceTrader.model;
 
-import com.example.spacetrader.entity.Visitable;
+import com.example.spaceTrader.entity.Visitable;
 
 import java.util.List;
 
 public class VisitableInteractor {
-    private static List<Visitable> visitables;
+    private static List<Visitable> visitableList;
 
-    public static List<Visitable> getVisitables() {
-        return visitables;
+    public static List<Visitable> getVisitableList() {
+        return visitableList;
     }
 
-    public static void setVisitables(List<Visitable> newVisitables){
-        visitables = newVisitables;
+    public static void setVisitableList(List<Visitable> newVisitableList){
+        visitableList = newVisitableList;
     }
 }

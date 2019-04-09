@@ -1,4 +1,4 @@
-package com.example.spaceTrader;
+package com.example.spacetrader;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.example.spacetrader.view;
+package com.example.spaceTrader.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,10 +13,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.model.PlayerInteractor;
-import com.example.spacetrader.viewmodel.PlayerBuilder;
+import com.example.spaceTrader.R;
+import com.example.spaceTrader.entity.Player;
+import com.example.spaceTrader.model.PlayerInteractor;
+import com.example.spaceTrader.viewmodel.PlayerBuilder;
 
 public class Character_Creation_Activity extends Activity {
 

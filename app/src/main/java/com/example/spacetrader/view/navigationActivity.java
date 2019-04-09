@@ -1,4 +1,4 @@
-package com.example.spaceTrader.view;
+package com.example.spacetrader.view;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -13,14 +13,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.spaceTrader.R;
-import com.example.spaceTrader.entity.Player;
-import com.example.spaceTrader.entity.SimpleRandomEvent;
-import com.example.spaceTrader.entity.Visitable;
-import com.example.spaceTrader.model.MarketInteractor;
-import com.example.spaceTrader.model.PlayerInteractor;
-import com.example.spaceTrader.model.UniverseInteractor;
-import com.example.spaceTrader.model.VisitableInteractor;
+import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.SimpleRandomEvent;
+import com.example.spacetrader.entity.Visitable;
+import com.example.spacetrader.model.MarketInteractor;
+import com.example.spacetrader.model.PlayerInteractor;
+import com.example.spacetrader.model.UniverseInteractor;
+import com.example.spacetrader.model.VisitableInteractor;
 
 import java.io.File;
 import java.io.FileOutputStream;

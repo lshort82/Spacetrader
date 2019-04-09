@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class MarketMakeSaleTest {
+public class MarketMakePurchaseTest {
     @Test
     public void testMarketMakePurchase() {
         Player player = new Player("player", "Easy", "gnat", 4, 4, 4, 4, 1000);

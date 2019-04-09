@@ -1,4 +1,4 @@
-package com.example.spaceTrader.view;
+package com.example.spacetrader.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.spaceTrader.R;
-import com.example.spaceTrader.entity.Player;
-import com.example.spaceTrader.entity.Universe;
-import com.example.spaceTrader.model.PlayerInteractor;
-import com.example.spaceTrader.model.UniverseInteractor;
-import com.example.spaceTrader.model.VisitableInteractor;
+import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.Universe;
+import com.example.spacetrader.model.PlayerInteractor;
+import com.example.spacetrader.model.UniverseInteractor;
+import com.example.spacetrader.model.VisitableInteractor;
 
 public class UniverseCreation extends Activity {
 

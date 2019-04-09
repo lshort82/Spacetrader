@@ -1,4 +1,4 @@
-package com.example.spaceTrader.entity;
+package com.example.spacetrader.entity;
 
 import android.support.annotation.NonNull;
 
@@ -29,7 +29,7 @@ public class Player implements Serializable {
         this("","","", 0,0,0,0,0);
     }
 
-    private Player(String nam, String diff, String ship, int pPoints, int fPoints, int tPoints, int ePoints, int credits) {
+    public Player(String nam, String diff, String ship, int pPoints, int fPoints, int tPoints, int ePoints, int credits) {
         name = nam;
         difficulty = diff;
         this.ship = ship;

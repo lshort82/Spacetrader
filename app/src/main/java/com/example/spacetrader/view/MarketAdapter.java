@@ -1,4 +1,4 @@
-package com.example.spaceTrader.view;
+package com.example.spacetrader.view;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.spaceTrader.R;
-import com.example.spaceTrader.entity.Item;
+import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Item;
 
 import java.util.ArrayList;
 import java.util.List;

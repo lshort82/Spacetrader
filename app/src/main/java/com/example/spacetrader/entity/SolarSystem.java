@@ -1,8 +1,8 @@
-package com.example.spaceTrader.entity;
+package com.example.spacetrader.entity;
 
 import android.support.annotation.NonNull;
 
-import com.example.spaceTrader.model.PlayerInteractor;
+import com.example.spacetrader.model.PlayerInteractor;
 
 import java.io.Serializable;
 import java.util.ArrayList;

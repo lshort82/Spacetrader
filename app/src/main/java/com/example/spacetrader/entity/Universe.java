@@ -1,4 +1,4 @@
-package com.example.spaceTrader.entity;
+package com.example.spacetrader.entity;
 
 import android.support.annotation.NonNull;
 

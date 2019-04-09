@@ -1,11 +1,11 @@
-package com.example.spaceTrader.viewmodel;
+package com.example.spacetrader.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
-import com.example.spaceTrader.entity.Player;
-import com.example.spaceTrader.model.PlayerInteractor;
+import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.model.PlayerInteractor;
 
 public class PlayerBuilder extends AndroidViewModel {
     //private PlayerInteractor interactor;

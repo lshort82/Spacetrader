@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.example.spaceTrader.R;
 import com.example.spaceTrader.entity.Player;
 import com.example.spaceTrader.entity.Universe;
-import com.example.spaceTrader.entity.Visitable;
 import com.example.spaceTrader.model.PlayerInteractor;
 import com.example.spaceTrader.model.UniverseInteractor;
 import com.example.spaceTrader.model.VisitableInteractor;
@@ -19,7 +18,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SavedGames extends ListActivity {
 

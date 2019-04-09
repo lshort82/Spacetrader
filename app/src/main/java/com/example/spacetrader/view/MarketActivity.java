@@ -27,7 +27,6 @@ import com.example.spaceTrader.model.VisitableInteractor;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 public class MarketActivity extends Activity {
 

@@ -17,16 +17,16 @@ public enum Resources implements Serializable {
     ARTISTIC(11, "Artistic"),
     WARLIKE(12, "Warlike");
 
+    private final int index;
     private final String description;
-    //private final int index;
     Resources(int index, String description){
-        //this.index = index;
+        this.index = index;
         this.description = description;
     }
 
-   /* public int getIndex() {
+   public int getIndex() {
         return  index;
-    }*/
+    }
 
     public String getDescription() {
         return description;

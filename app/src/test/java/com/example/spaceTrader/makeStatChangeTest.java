@@ -1,8 +1,7 @@
-package com.example.spacetrader;
-import com.example.spacetrader.entity.Player;
+package com.example.spaceTrader;
+import com.example.spaceTrader.entity.Player;
 
 import org.junit.Test;
-import org.junit.Assert.*;
 
 import static junit.framework.TestCase.assertEquals;
 

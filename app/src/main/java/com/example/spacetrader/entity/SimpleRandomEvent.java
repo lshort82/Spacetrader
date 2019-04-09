@@ -1,4 +1,4 @@
-package com.example.spacetrader.entity;
+package com.example.spaceTrader.entity;
 
 public enum SimpleRandomEvent {
     DEHYDRATED(0,"Dehydrated Travelers",

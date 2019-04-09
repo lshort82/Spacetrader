@@ -1,4 +1,4 @@
-package com.example.spacetrader.entity;
+package com.example.spaceTrader.entity;
 
 import java.io.Serializable;
 import java.util.Random;

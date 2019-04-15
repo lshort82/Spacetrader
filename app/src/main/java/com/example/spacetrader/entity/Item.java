@@ -2,6 +2,7 @@ package com.example.spaceTrader.entity;
 
 import java.io.Serializable;
 
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public enum Item implements Serializable {
     WATER(0, "Water", 0, 0, 2, 30, 3, 4, "Drought", Resources.LOTS_OF_WATER, Resources.DESERT, 30, 50),
     FURS(1, "Furs", 0, 0, 0, 250, 10, 10, "Cold", Resources.RICH_FAUNA, Resources.LIFELESS, 230, 280),

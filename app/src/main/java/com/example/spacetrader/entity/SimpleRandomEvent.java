@@ -1,5 +1,6 @@
 package com.example.spaceTrader.entity;
 
+@SuppressWarnings("unused")
 public enum SimpleRandomEvent {
     DEHYDRATED(0,"Dehydrated Travelers",
             "You have come across a neutral spaceship of pilots trying to escape their home planet. Perhaps if you were to help them they would reward your kindness.",

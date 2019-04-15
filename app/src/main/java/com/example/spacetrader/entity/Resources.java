@@ -2,6 +2,7 @@ package com.example.spaceTrader.entity;
 
 import java.io.Serializable;
 
+@SuppressWarnings({"FieldCanBeLocal", "unused"})
 public enum Resources implements Serializable {
     NO_SPECIAL_RESOURCES(0, "No Special Resources"),
     MINERAL_RICH(1, "Mineral Rich"),
@@ -17,6 +18,7 @@ public enum Resources implements Serializable {
     ARTISTIC(11, "Artistic"),
     WARLIKE(12, "Warlike");
 
+    @SuppressWarnings("unused")
     private final int index;
     private final String description;
     Resources(int index, String description){
@@ -24,9 +26,11 @@ public enum Resources implements Serializable {
         this.description = description;
     }
 
-   public int getIndex() {
-        return  index;
-    }
+// --Commented out by Inspection START (4/14/2019 9:27 PM):
+//   public int getIndex() {
+//        return  index;
+//    }
+// --Commented out by Inspection STOP (4/14/2019 9:27 PM)
 
     public String getDescription() {
         return description;

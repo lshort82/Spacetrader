@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("CanBeFinal")
 public class Player implements Serializable {
     private String name;
     private final String difficulty;
@@ -67,9 +68,11 @@ public class Player implements Serializable {
         name = nam;
     }
 
-    public String getName() {
-        return name;
-    }
+// --Commented out by Inspection START (4/14/2019 9:27 PM):
+//    public String getName() {
+//        return name;
+//    }
+// --Commented out by Inspection STOP (4/14/2019 9:27 PM)
 
   /*  public void setDifficulty(String diff) {
         difficulty = diff;

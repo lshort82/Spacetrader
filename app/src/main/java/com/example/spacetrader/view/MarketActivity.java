@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -24,7 +25,6 @@ import com.example.spaceTrader.model.PlayerInteractor;
 import com.example.spaceTrader.model.UniverseInteractor;
 import com.example.spaceTrader.model.VisitableInteractor;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -75,9 +75,11 @@ public class MarketActivity extends Activity {
         super.onResume();
         playerMarket = new Market(player.getInventory(),player.getQuantity(), playerMarket.getPrice());
         TextView credits = findViewById(R.id.credits);
-        credits.setText(player.getCredits());
+        String creditString = "" + credits;
+        credits.setText(creditString);
+        String spaceString = "" + player.spaceLeft();
         TextView spaceLeft = findViewById(R.id.spaceLeft);
-        spaceLeft.setText(player.spaceLeft());
+        spaceLeft.setText(spaceString);
         if(isBuying) {
             adapter.setLists(market.getInventory(), market.getQuantity(), market.getPrice());
         }else {
@@ -90,7 +92,8 @@ public class MarketActivity extends Activity {
                 if(isBuying) {
                     final AlertDialog.Builder d = new AlertDialog.Builder(MarketActivity.this);
                     LayoutInflater inflater = getLayoutInflater();
-                    View dialogView = inflater.inflate(R.layout.number_picker_dialog, null);
+                    final ViewGroup nullParent = null;
+                    View dialogView = inflater.inflate(R.layout.number_picker_dialog, nullParent);
                     d.setTitle("Buying " + item.getName());
                     d.setMessage("Select Quantity");
                     d.setView(dialogView);
@@ -124,7 +127,8 @@ public class MarketActivity extends Activity {
                 } else {
                     final AlertDialog.Builder d = new AlertDialog.Builder(MarketActivity.this);
                     LayoutInflater inflater = getLayoutInflater();
-                    View dialogView = inflater.inflate(R.layout.number_picker_dialog, null);
+                    final ViewGroup nullParent = null;
+                    View dialogView = inflater.inflate(R.layout.number_picker_dialog, nullParent);
                     d.setTitle("Selling " + item.getName());
                     d.setMessage("Select Quantity");
                     d.setView(dialogView);
@@ -162,7 +166,8 @@ public class MarketActivity extends Activity {
     }
     public void onSave(View view) {
         LayoutInflater li = LayoutInflater.from(this);
-        View saveView = li.inflate(R.layout.activity_save_prompt, null);
+        final ViewGroup nullParent = null;
+        View saveView = li.inflate(R.layout.activity_save_prompt, nullParent);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setView(saveView);
 
@@ -171,7 +176,7 @@ public class MarketActivity extends Activity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         String fileName = userInput.getText().toString() + "_save";
-                        File saveDirectory = getDir("Saves", MODE_PRIVATE);
+                        //File saveDirectory = getDir("Saves", MODE_PRIVATE);
                         //File saveFile = new File(saveDirectory, fileName);
                         try {
                             FileOutputStream saver = openFileOutput(fileName + ".txt", MODE_PRIVATE);

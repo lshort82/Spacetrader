@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
+@SuppressWarnings("ALL")
 public class makeStatChangeTest {
     private int pp = 1;
     private int fp = 2;

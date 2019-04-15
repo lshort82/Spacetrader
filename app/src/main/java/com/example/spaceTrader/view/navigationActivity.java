@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -22,7 +23,6 @@ import com.example.spaceTrader.model.PlayerInteractor;
 import com.example.spaceTrader.model.UniverseInteractor;
 import com.example.spaceTrader.model.VisitableInteractor;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -70,7 +70,8 @@ public class navigationActivity extends ListActivity {
 
     public void onSave(View view) {
         LayoutInflater li = LayoutInflater.from(this);
-        View saveView = li.inflate(R.layout.activity_save_prompt, null);
+        final ViewGroup nullParent = null;
+        View saveView = li.inflate(R.layout.activity_save_prompt, nullParent);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setView(saveView);
 
@@ -79,7 +80,7 @@ public class navigationActivity extends ListActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         String fileName = userInput.getText().toString() + "_save";
-                        File saveDirectory = getDir("Saves", MODE_PRIVATE);
+                        //File saveDirectory = getDir("Saves", MODE_PRIVATE);
                         //File saveFile = new File(saveDirectory, fileName);
                         try {
                             FileOutputStream saver = openFileOutput(fileName + ".txt", MODE_PRIVATE);
